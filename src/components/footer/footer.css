@@ -3,13 +3,12 @@ footer {
     right: 0;
     left: 0;
     bottom: 0;
-    padding: 10px 20px;
     background: rgba(0, 0, 0, 0.79);
     border-top: 1px solid #000000;
 }
 
 .footer-title {
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .footer-wrapper {
@@ -21,7 +20,7 @@ footer {
 }
 
 .github-icon {
-    font-size: 64px;
+    font-size: 48px;
     color: #ffffffcd;
     transition: 1s;
 }

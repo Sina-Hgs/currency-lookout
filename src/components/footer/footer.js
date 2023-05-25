@@ -9,11 +9,11 @@ const Footer = () => {
       <div className="footer-wrapper">
         <div>
           <h4 className="title footer-title">CRYPTO LOOKOUT</h4>
-          <p>This project uses Exchange API.</p>
+          <p>This project uses Exchange API, Chart.js, & react-chart.js</p>
           <p>Made by Sina Haghshenas.</p>
         </div>
         <a href="https://github.com/Sina-Hgs" target="_blanck">
-          <FontAwesomeIcon icon={faGithub} size="2xl" className="github-icon"/>
+          <FontAwesomeIcon icon={faGithub} size="2xl" className="github-icon" />
         </a>
       </div>
     </footer>
