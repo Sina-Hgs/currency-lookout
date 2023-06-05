@@ -1,4 +1,5 @@
-import Data from "../../data/data";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchData } from "../../store/currencySlice";
 
 import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
@@ -20,10 +21,11 @@ const data = {
 };
 
 const DataChart = () => {
+  const dispatch = useDispatch();
+  dispatch(fetchData());
   return (
     <div>
       <Line data={data} className="chart" />
-      <Data />
     </div>
   );
 };
