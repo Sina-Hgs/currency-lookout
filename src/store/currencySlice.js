@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { act } from "react-dom/test-utils";
 
 const initialState = {
   data: [],
@@ -14,28 +15,23 @@ const initialState = {
 
 const requestURL = `https://api.exchangerate.host/timeseries?start_date=${initialState.startDate}&end_date=${initialState.endDate}&base=${initialState.base}&symbols=${initialState.symbol}`;
 
-export const fetchData = createAsyncThunk("currency", async () => {
-  try {
-    const response = await fetch(requestURL);
-    const fetchData = await response.json();
-    const fetchedRates = fetchData.rates;
+export const fetchData = createAsyncThunk("currency/fetchData", async () => {
+  const response = await fetch(requestURL);
+  const fetchData = await response.json();
+  const fetchedRates = fetchData.rates;
 
-    // converting the object into an array for easier looping
-    // the first index has the date in string format
-    // the second index has an object with all the rates
-    const arr = Object.entries(fetchedRates);
+  // converting the object into an array for easier looping
+  // the first index has the date in string format
+  // the second index has an object with all the rates
+  const arr = Object.entries(fetchedRates);
 
-    // creating a new array with date and rates in array format
-    for (let i = 0; i < arr.length; i++) {
-      const temp = [arr[i][0]];
-      const ratesArray = temp.concat(Object.entries(arr[i][1]));
-      // console.log(ratesArray);
-      initialState.data.push(ratesArray);
-    }
-    console.log("hi", initialState.data);
-  } catch {
-    // write the error catching here
+  // creating a new array with date and rates in array format
+  let ratesArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    ratesArray.push([arr[i][0], Object.entries(arr[i][1])]);
   }
+  console.log(ratesArray);
+  return ratesArray;
 });
 
 const currencySlice = createSlice({
@@ -54,9 +50,25 @@ const currencySlice = createSlice({
     symbolChanger: (state, action) => {
       state.symbol = action.payload;
     },
+    dataChanger: (state, action) => {
+      state.data = action.payload;
+    },
   },
-  //   this one is for is the spinner
-  //   extraReducers: {},
+  // these reducers work for the actions that defined outside of the slice
+  // so they work for the thunk fetchData function
+  extraReducers(builder) {
+    builder.addCase(fetchData.pending, (state, action) => {
+      state.status = "loading";
+    });
+    builder.addCase(fetchData.fulfilled, (state, action) => {
+      state.status = "succeded";
+      state.data = state.data.concat(action.payload);
+    });
+    builder.addCase(fetchData.rejected, (state, action) => {
+      state.status = "failed";
+      state.error = action.error.message;
+    });
+  },
 });
 
 export const { timeGetter, baseChanger, symbolChanger } = currencySlice.actions;
