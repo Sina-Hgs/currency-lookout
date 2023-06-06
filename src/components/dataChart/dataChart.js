@@ -22,7 +22,7 @@ const data = {
 
 const DataChart = () => {
   const dispatch = useDispatch();
-  dispatch(fetchData());
+
   return (
     <div>
       <Line data={data} className="chart" />
