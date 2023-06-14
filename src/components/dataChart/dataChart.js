@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import { fetchData } from "../../store/currencySlice";
 
@@ -21,7 +23,37 @@ const data = {
 };
 
 const DataChart = () => {
+  // const [data, setData] = useState([]);
+
   const dispatch = useDispatch();
+
+  const dataStatus = useSelector((state) => state.currency.status);
+  const endDate = useSelector((state) => state.currency.endDate);
+
+  const statusChecker = () => {
+    switch (dataStatus) {
+      case "idle":
+        const fetchedData = dispatch(fetchData());
+        break;
+
+      case "loading":
+        console.log("loading");
+        break;
+
+      case "succeded":
+        console.log("succeded");
+        break;
+
+      case "failed":
+        console.log("failed");
+        break;
+    }
+  };
+
+  // ADD COMMENTS HERE
+  useEffect(() => {
+    statusChecker();
+  }, []);
 
   return (
     <div>

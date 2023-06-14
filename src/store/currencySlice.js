@@ -1,20 +1,52 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { act } from "react-dom/test-utils";
+
+let today;
+let fiveDays;
+let week;
+let oneMonth;
+let sixMonths;
+let year;
+
+const calculateDate = () => {
+  const now = new Date();
+
+  // I need to get the hours so the time doesn't get messed up while using
+  // toISOString because of timezones offset
+  const dateOfToday = new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate(),
+    now.getHours()
+  );
+
+  today = dateOfToday.toISOString().slice(0, 10);
+  console.log(today);
+
+  const dateOfFiveDaysAgo = new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate() - 5,
+    now.getHours()
+  );
+
+  // write a callback func that calculates the other dates
+};
+
+calculateDate();
 
 const initialState = {
   data: [],
-  startDate: "2020-01-01",
-  endDate: "2020-01-03",
+  startDate: "2023-06-13",
+  endDate: today,
   base: "EUR",
   symbol: "USD",
   status: "idle",
   error: null,
 };
 
-// base is the base currency and symbol is the target currency
-
 const requestURL = `https://api.exchangerate.host/timeseries?start_date=${initialState.startDate}&end_date=${initialState.endDate}&base=${initialState.base}&symbols=${initialState.symbol}`;
 
+// base is the base currency and symbol is the target currency
 export const fetchData = createAsyncThunk("currency/fetchData", async () => {
   const response = await fetch(requestURL);
   const fetchData = await response.json();
@@ -30,18 +62,19 @@ export const fetchData = createAsyncThunk("currency/fetchData", async () => {
   for (let i = 0; i < arr.length; i++) {
     ratesArray.push([arr[i][0], Object.entries(arr[i][1])]);
   }
-  console.log(ratesArray);
   return ratesArray;
 });
 
 const currencySlice = createSlice({
   name: "currency",
   initialState,
-  reducer: {
-    timeGetter: (state, action) => {
-      state.startDate = action.payload[0];
-      state.endDate = action.payload[1];
-    },
+  reducers: {
+    // timeGetter: (state, action) => {
+    //   // state.startDate = action.payload[0];
+    //   console.log("1", state.endDate);
+    //   state.endDate = action.payload;
+    //   console.log("2", state.endDate);
+    // },
     // for changing the base currency
     baseChanger: (state, action) => {
       state.base = action.payload;
@@ -54,20 +87,21 @@ const currencySlice = createSlice({
       state.data = action.payload;
     },
   },
-  // these reducers work for the actions that defined outside of the slice
-  // so they work for the thunk fetchData function
+  // these reducers work for the actions that are defined outside of the slice (i.e. fetchData function)
   extraReducers(builder) {
-    builder.addCase(fetchData.pending, (state, action) => {
-      state.status = "loading";
-    });
-    builder.addCase(fetchData.fulfilled, (state, action) => {
-      state.status = "succeded";
-      state.data = state.data.concat(action.payload);
-    });
-    builder.addCase(fetchData.rejected, (state, action) => {
-      state.status = "failed";
-      state.error = action.error.message;
-    });
+    builder
+      .addCase(fetchData.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchData.fulfilled, (state, action) => {
+        state.status = "succeded";
+        state.data = action.payload;
+        console.log("fetched this", state.data);
+      })
+      .addCase(fetchData.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      });
   },
 });
 
