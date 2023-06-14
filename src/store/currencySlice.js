@@ -1,9 +1,43 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+let today;
+let fiveDays;
+let week;
+let oneMonth;
+let sixMonths;
+let year;
+
+const calculateDate = () => {
+  const now = new Date();
+
+  // I need to get the hours so the time doesn't get messed up while using
+  // toISOString because of timezones offset
+  const dateOfToday = new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate(),
+    now.getHours()
+  );
+
+  today = dateOfToday.toISOString().slice(0, 10);
+  console.log(today);
+
+  const dateOfFiveDaysAgo = new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate() - 5,
+    now.getHours()
+  );
+
+  // write a callback func that calculates the other dates
+};
+
+calculateDate();
+
 const initialState = {
   data: [],
-  startDate: "2023-06-12",
-  endDate: "2023-06-14",
+  startDate: "2023-06-13",
+  endDate: today,
   base: "EUR",
   symbol: "USD",
   status: "idle",
