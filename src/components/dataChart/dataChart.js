@@ -28,32 +28,32 @@ const DataChart = () => {
   const dispatch = useDispatch();
 
   const dataStatus = useSelector((state) => state.currency.status);
-  const endDate = useSelector((state) => state.currency.endDate);
+  const startDate = useSelector((state) => state.currency.startDate);
 
-  const statusChecker = () => {
-    switch (dataStatus) {
-      case "idle":
-        const fetchedData = dispatch(fetchData());
-        break;
+  // const statusChecker = () => {
+  //   switch (dataStatus) {
+  //     case "idle":
+  //       const fetchedData = dispatch(fetchData());
+  //       break;
 
-      case "loading":
-        console.log("loading");
-        break;
+  //     case "loading":
+  //       console.log("loading");
+  //       break;
 
-      case "succeded":
-        console.log("succeded");
-        break;
+  //     case "succeded":
+  //       console.log("succeded");
+  //       break;
 
-      case "failed":
-        console.log("failed");
-        break;
-    }
-  };
+  //     case "failed":
+  //       console.log("failed");
+  //       break;
+  //   }
+  // };
 
-  // ADD COMMENTS HERE
-  useEffect(() => {
-    statusChecker();
-  }, []);
+  // // ADD COMMENTS HERE
+  // useEffect(() => {
+  //   statusChecker();
+  // }, [startDate]);
 
   return (
     <div>
