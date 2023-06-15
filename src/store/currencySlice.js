@@ -17,7 +17,7 @@ const calculateInitialDates = () => {
   );
 
   today = dateOfToday.toISOString().slice(0, 10);
-  console.log("today's date", today);
+  // console.log("today's date", today);
 
   // substracting 6 days of today's date to get the initial startDate
   // because the 7th day is the endDate (i.e. today)
@@ -29,7 +29,7 @@ const calculateInitialDates = () => {
   );
 
   initial_starting_date = dateOfAWeekAgo.toISOString().slice(0, 10);
-  console.log("initial starting date", initial_starting_date);
+  // console.log("initial starting date", initial_starting_date);
 };
 
 calculateInitialDates();
@@ -74,7 +74,7 @@ const currencySlice = createSlice({
     // for changing the starting date and time range of chart
     startingTimeGetter: (state, action) => {
       state.startDate = action.payload;
-      console.log(state.startDate, "changed the start date to this!!");
+      // console.log(state.startDate, "changed the start date to this!!");
       requestURL = `https://api.exchangerate.host/timeseries?start_date=${state.startDate}&end_date=${state.endDate}&base=${state.base}&symbols=${state.symbol}`;
     },
     // for changing the base currency
@@ -95,21 +95,21 @@ const currencySlice = createSlice({
     builder
       .addCase(fetchData.pending, (state) => {
         state.status = "loading";
-        console.log("loading from store!");
+        console.log("loading from store!🌙", state.status);
       })
       .addCase(fetchData.fulfilled, (state, action) => {
         state.status = "succeded";
-        console.log("THIS IS THE STATUS I HAVE IN STORE", state.status);
+        console.log("succeding from store!🌙", state.status);
         state.data = action.payload;
-        console.log("succeded from store!");
-        console.log("fetched this", state.data);
-        // state.status = "idle";
+        
+        console.log("fetched this📊", state.data);
+        
       })
       .addCase(fetchData.rejected, (state, action) => {
-        console.log("failed from store!");
+        console.log("failed from store!💥");
         state.status = "failed";
         state.error = action.error.message;
-        // state.status = "idle";
+        
       });
   },
 });
