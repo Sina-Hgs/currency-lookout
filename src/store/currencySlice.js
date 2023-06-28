@@ -1,45 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-let today;
-let initial_starting_date;
-
-// WRITE COMMENT HERE!!!!!!!!!!!!!!!!
-const calculateInitialDates = () => {
-  const now = new Date();
-
-  // I need to get the hours so the day's date doesn't get messed up while using
-  // toISOString because of timezones hour offset
-  const dateOfToday = new Date(
-    now.getFullYear(),
-    now.getMonth(),
-    now.getDate(),
-    now.getHours()
-  );
-
-  today = dateOfToday.toISOString().slice(0, 10);
-  // console.log("today's date", today);
-
-  // substracting 6 days of today's date to get the initial startDate
-  // because the 7th day is the endDate (i.e. today)
-  const dateOfAWeekAgo = new Date(
-    now.getFullYear(),
-    now.getMonth(),
-    now.getDate() - 6,
-    now.getHours()
-  );
-
-  initial_starting_date = dateOfAWeekAgo.toISOString().slice(0, 10);
-  // console.log("initial starting date", initial_starting_date);
-};
-
-calculateInitialDates();
-
 // INITIAL STATE
 
 const initialState = {
   data: [],
-  startDate: initial_starting_date,
-  endDate: today,
+  startDate: undefined,
+  endDate: undefined,
   base: "EUR",
   symbol: "USD",
   status: "idle",
@@ -72,10 +38,10 @@ const currencySlice = createSlice({
   initialState,
   reducers: {
     // for changing the starting date and time range of chart
-    startingTimeGetter: (state, action) => {
-      state.startDate = action.payload;
-      // console.log(state.startDate, "changed the start date to this!!");
-      requestURL = `https://api.exchangerate.host/timeseries?start_date=${state.startDate}&end_date=${state.endDate}&base=${state.base}&symbols=${state.symbol}`;
+    timeGetter: ({ startDate, endDate, base, symbol }, action) => {
+      [startDate, endDate] = [...action.payload];
+
+      requestURL = `https://api.exchangerate.host/timeseries?start_date=${startDate}&end_date=${endDate}&base=${base}&symbols=${symbol}`;
     },
     // for changing the base currency
     statusChanger: (state, action) => {
@@ -95,26 +61,24 @@ const currencySlice = createSlice({
     builder
       .addCase(fetchData.pending, (state) => {
         state.status = "loading";
-        console.log("loading from store!🌙", state.status);
+        console.log(`loading message from store!🌓status: ${state.status}`);
       })
       .addCase(fetchData.fulfilled, (state, action) => {
         state.status = "succeded";
-        console.log("succeding from store!🌙", state.status);
+        console.log(`success message from store!🌕status: ${state.status}`);
         state.data = action.payload;
-        
-        console.log("fetched this📊", state.data);
-        
+
+        console.log("fetched data:📊", state.data);
       })
       .addCase(fetchData.rejected, (state, action) => {
-        console.log("failed from store!💥");
+        console.log("failed message from store!💥");
         state.status = "failed";
         state.error = action.error.message;
-        
       });
   },
 });
 
-export const { startingTimeGetter, baseChanger, symbolChanger, statusChanger } =
+export const { timeGetter, baseChanger, symbolChanger, statusChanger } =
   currencySlice.actions;
 
 export default currencySlice.reducer;

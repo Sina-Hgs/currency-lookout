@@ -8,7 +8,7 @@ const Footer = () => {
     <footer>
       <div className="footer-wrapper">
         <div>
-          <h4 className="title footer-title">CRYPTO LOOKOUT</h4>
+          <h4 className="title footer-title">CURRENCY LOOKOUT</h4>
           <p>This project uses Exchange API, Chart.js, & react-chart.js</p>
           <p>Made by Sina Haghshenas.</p>
         </div>
