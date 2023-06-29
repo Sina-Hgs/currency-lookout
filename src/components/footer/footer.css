@@ -1,8 +1,9 @@
 footer {
-    position: absolute;
+    position: relative;
     bottom: 0;
     left: 0;
     right: 0;
+    margin-top: 100px;
     background: rgba(0, 0, 0, 0.79);
     border-top: 1px solid #000000;
 }

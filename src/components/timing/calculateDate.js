@@ -9,7 +9,7 @@ const calculateDates = () => {
   console.log("Calcultating dates 📅...");
   const now = new Date();
 
-  // TODAY'S
+  // TODAY
   // I need to get the hours so the day's date doesn't get messed up while using
   // toISOString because of timezones hour offset of the user's location
   const dateOfToday = new Date(
