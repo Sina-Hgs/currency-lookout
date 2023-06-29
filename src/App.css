@@ -10,6 +10,8 @@
   bottom: 0;
   top: 0;
   color: #ffff;
+
+  height: max-content;
   background: linear-gradient(180deg, #000000 0%, #0f690d 100%);
   font-family: lato;
   font-size: 16px;

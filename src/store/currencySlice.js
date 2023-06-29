@@ -6,14 +6,17 @@ const initialState = {
   data: [],
   startDate: undefined,
   endDate: undefined,
-  base: "EUR",
-  symbol: "USD",
+  // base is the base currency and symbol is the target currency
+  // for example base of USD and symbol of IRR means:
+  // how much is 1 USD in IRR? 1$=42000 IRR
+  base: "USD",
+  symbol: "IRR",
   status: "idle",
   error: null,
 };
 
 let requestURL;
-// base is the base currency and symbol is the target currency
+
 export const fetchData = createAsyncThunk("currency/fetchData", async () => {
   const response = await fetch(requestURL);
   const fetchData = await response.json();
@@ -43,7 +46,7 @@ const currencySlice = createSlice({
 
       requestURL = `https://api.exchangerate.host/timeseries?start_date=${startDate}&end_date=${endDate}&base=${base}&symbols=${symbol}`;
     },
-    // for changing the base currency
+    // for changing the status of api call
     statusChanger: (state, action) => {
       state.status = action.payload;
     },
@@ -67,12 +70,17 @@ const currencySlice = createSlice({
         state.status = "succeded";
         console.log(`success message from store!🌕status: ${state.status}`);
         state.data = action.payload;
+        state.error = null;
 
         console.log("fetched data:📊", state.data);
       })
       .addCase(fetchData.rejected, (state, action) => {
-        console.log("failed message from store!💥");
         state.status = "failed";
+        console.error(
+          "error message from store: ",
+          action.error.message,
+          `💥status: ${state.status}`
+        );
         state.error = action.error.message;
       });
   },

@@ -1,3 +1,6 @@
 .chart {
     margin: auto;
+    width: 90vw;
+    /* background: rgb(5, 255, 0);
+    background: linear-gradient(180deg, rgba(5, 255, 0, 1) 0%, rgba(255, 199, 0, 1) 35%, rgba(255, 0, 0, 1) 100%); */
 }
