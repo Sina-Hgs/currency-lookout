@@ -15,14 +15,14 @@ const DataChart = () => {
     setData(storeData);
   }, [storeData]);
 
-  // seperating the dates and currency rates and target currency
+  // seperating the dates, currency rates, and target currency's name
   let dates = [];
   let rates = [];
   let curr;
   for (let i = 0; i < data.length; i++) {
     dates.push(data[i][0]);
     rates.push(data[i][1][0][1]);
-    curr = data[0][1][0];
+    curr = data[0][1][0][0];
   }
 
   const chartData = {
@@ -30,8 +30,8 @@ const DataChart = () => {
     datasets: [
       {
         label: curr,
-        backgroundColor: "rgb(255, 99, 132)",
-        borderColor: "rgb(255, 99, 132)",
+        backgroundColor: "pink",
+        borderColor: "pink",
         data: rates,
       },
     ],

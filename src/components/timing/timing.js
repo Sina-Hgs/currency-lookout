@@ -47,15 +47,10 @@ const Timing = () => {
   // the hook runs and gives the calculated starting date and today's date(end date)
   // to the store, then if the status that taken from store is "idle" starts the data fetching
   // it shows the error if it catches any
-
   useEffect(() => {
-    try {
-      dispatch(timeGetter([startingDate, today]));
-      if (dataStatus == "idle") {
-        dispatch(fetchData());
-      }
-    } catch (err) {
-      console.error("Failed to fetch data", err);
+    dispatch(timeGetter([startingDate, today]));
+    if (dataStatus == "idle") {
+      dispatch(fetchData());
     }
   }, [dataStatus]);
 
