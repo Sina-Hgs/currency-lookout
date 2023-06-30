@@ -17,6 +17,8 @@ const initialState = {
 
 let requestURL;
 
+// creating the fetch data function in store as an async thunk function (instead of fetching inside a component)
+// because many components need the data. (the fetchData func is dispatched from the timing component)
 export const fetchData = createAsyncThunk("currency/fetchData", async () => {
   const response = await fetch(requestURL);
   const fetchData = await response.json();
@@ -25,12 +27,12 @@ export const fetchData = createAsyncThunk("currency/fetchData", async () => {
   // converting the object into an array for easier looping
   // the first index has the date in string format
   // the second index has an object with all the rates
-  const arr = Object.entries(fetchedRates);
+  const tempArr = Object.entries(fetchedRates);
 
   // creating a new array with date and rates in array format
   let ratesArray = [];
-  for (let i = 0; i < arr.length; i++) {
-    ratesArray.push([arr[i][0], Object.entries(arr[i][1])]);
+  for (let i = 0; i < tempArr.length; i++) {
+    ratesArray.push([tempArr[i][0], Object.entries(tempArr[i][1])]);
   }
 
   return ratesArray;
