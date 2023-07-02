@@ -1,16 +1,15 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 // INITIAL STATE
-
 const initialState = {
   data: [],
   startDate: undefined,
   endDate: undefined,
   // base is the base currency and symbol is the target currency
-  // for example base of USD and symbol of IRR means:
-  // how much is 1 USD in IRR? 1$=42000 IRR
-  base: "USD",
-  symbol: "IRR",
+  // for example base of BTC and symbol (target) of USD means:
+  // how much is 1 BTC in USD? 1 BITCOIN= $30,355
+  base: "BTC",
+  symbol: "USD",
   status: "idle",
   error: null,
 };
