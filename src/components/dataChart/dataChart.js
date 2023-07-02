@@ -8,6 +8,7 @@ import { Line } from "react-chartjs-2";
 import "./dataChart.css";
 
 const DataChart = () => {
+  const error = useSelector((state) => state.currency.error);
   const storeData = useSelector((state) => state.currency.data);
   const [data, setData] = useState(storeData);
 
@@ -38,9 +39,12 @@ const DataChart = () => {
   };
 
   return (
-    <div className="chart-wrapper">
-      <Line data={chartData} className="chart" />
-    </div>
+    <>
+      <span className="error-message">{error}</span>
+      <div className="chart-wrapper">
+        <Line data={chartData} className="chart" />
+      </div>
+    </>
   );
 };
 
