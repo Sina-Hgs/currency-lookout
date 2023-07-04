@@ -46,7 +46,6 @@ const Timing = () => {
 
   // the hook runs and gives the calculated starting date and today's date(end date)
   // to the store, then if the status that taken from store is "idle" starts the data fetching
-  // it shows the error if it catches any
   useEffect(() => {
     dispatch(timeGetter([startingDate, today]));
     if (dataStatus == "idle") {
@@ -54,7 +53,7 @@ const Timing = () => {
     }
   }, [dataStatus]);
 
-  const changeDate = (newDate) => {
+  const changeDateHandler = (newDate) => {
     setStartingDate(newDate);
     setStatus("idle");
     dispatch(statusChanger(status));
@@ -64,28 +63,28 @@ const Timing = () => {
     <div className="timing">
       <button
         onClick={() => {
-          changeDate(week);
+          changeDateHandler(week);
         }}
       >
         1 WEEK
       </button>
       <button
         onClick={() => {
-          changeDate(oneMonth);
+          changeDateHandler(oneMonth);
         }}
       >
         1 MONTHS
       </button>
       <button
         onClick={() => {
-          changeDate(sixMonths);
+          changeDateHandler(sixMonths);
         }}
       >
         6 MONTHS
       </button>
       <button
         onClick={() => {
-          changeDate(year);
+          changeDateHandler(year);
         }}
       >
         1 YEAR
