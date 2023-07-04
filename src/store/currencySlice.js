@@ -5,11 +5,11 @@ const initialState = {
   data: [],
   startDate: undefined,
   endDate: undefined,
-  // base is the base currency and symbol is the target currency
-  // for example base of BTC and symbol (target) of USD means:
-  // how much is 1 BTC in USD? 1 BITCOIN= $30,355
+  // base is the base currency and target is the target currency
+  // for example base of BTC and target of USD means:
+  // how much is 1 BTC in USD? 1 BITCOIN= $31,000
   base: "BTC",
-  symbol: "USD",
+  target: "USD",
   status: "idle",
   error: null,
 };
@@ -42,10 +42,9 @@ const currencySlice = createSlice({
   initialState,
   reducers: {
     // for changing the starting date and time range of chart
-    timeGetter: ({ startDate, endDate, base, symbol }, action) => {
+    timeGetter: ({ startDate, endDate, base, target }, action) => {
       [startDate, endDate] = [...action.payload];
-
-      requestURL = `https://api.exchangerate.host/timeseries?start_date=${startDate}&end_date=${endDate}&base=${base}&symbols=${symbol}`;
+      requestURL = `https://api.exchangerate.host/timeseries?start_date=${startDate}&end_date=${endDate}&base=${base}&symbols=${target}`;
     },
     // for changing the status of api call
     statusChanger: (state, action) => {
@@ -56,8 +55,8 @@ const currencySlice = createSlice({
       state.base = action.payload;
     },
     // for changing the target currency
-    symbolChanger: (state, action) => {
-      state.symbol = action.payload;
+    targetChanger: (state, action) => {
+      state.target = action.payload;
     },
   },
   // these reducers work for the actions that are defined outside of the slice (i.e. fetchData function)
@@ -68,12 +67,13 @@ const currencySlice = createSlice({
         console.log(`loading message from store!🌓status: ${state.status}`);
       })
       .addCase(fetchData.fulfilled, (state, action) => {
-        state.status = "succeded";
-        console.log(`success message from store!🌕status: ${state.status}`);
         state.data = action.payload;
+        console.log("fetched data:📊", state.data);
+
         state.error = null;
 
-        console.log("fetched data:📊", state.data);
+        state.status = "succeded";
+        console.log(`success message from store!🌕status: ${state.status}`);
       })
       .addCase(fetchData.rejected, (state, action) => {
         state.status = "failed";
@@ -87,7 +87,7 @@ const currencySlice = createSlice({
   },
 });
 
-export const { timeGetter, baseChanger, symbolChanger, statusChanger } =
+export const { timeGetter, baseChanger, targetChanger, statusChanger } =
   currencySlice.actions;
 
 export default currencySlice.reducer;

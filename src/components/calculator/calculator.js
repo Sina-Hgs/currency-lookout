@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  fetchData,
+  baseChanger,
+  targetChanger,
+  statusChanger,
+} from "../../store/currencySlice";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -11,34 +17,84 @@ import "./calculator.css";
 
 const Calculator = () => {
   const storeData = useSelector((state) => state.currency.data);
-  const status = useSelector((state) => state.currency.status);
+
+  const dataStatus = useSelector((state) => state.currency.status);
+
+  const baseCode = useSelector((state) => state.currency.base);
+  const targetCode = useSelector((state) => state.currency.target);
+
+  const [baseCurrency, setBaseCurrency] = useState();
+  const [targetCurrency, setTargetCurrency] = useState();
 
   const [latestRate, setLatestRate] = useState(0);
   const [targetValue, setTargetValue] = useState(latestRate);
 
-  // useEffect(() => {
-  //   // console.log(dropDownArr, "DROPDOWN IN HERE!!!!!!!!!!");
-  //   // console.log(currencyArr, "CURRENCIES IN HERE!!!!!!!!");
-  // }, []);
+  const dispatch = useDispatch();
+
+  // finding currency's name based on its code
+  // used when we get the currencies code from store for base and target
+  // and need to get their full names for setting them as the selected options in JSX
+  let fullName;
+  const findCurrencyName = (currencyCode) => {
+    for (let i = 0; i < currencyArr.length; i++) {
+      if (currencyArr[i][1] == currencyCode) {
+        fullName = currencyArr[i][0];
+
+        return fullName;
+      }
+    }
+  };
 
   useEffect(() => {
     // only changing the state when the fetchData in store has succeeded, otherwise I'll get an error for
     // trying to select an index in the storedData that doesn't exist
-    if (status == "succeded") {
+    if (dataStatus == "succeded") {
+      setBaseCurrency(findCurrencyName(baseCode));
+      setTargetCurrency(findCurrencyName(targetCode));
+
       setLatestRate(storeData[storeData.length - 1][1][0][1]);
       setTargetValue(latestRate);
     }
-  }, [storeData, status]);
+  }, [storeData]);
 
+  // finding code of the currency based on its full name for keys in JSX
+  let codeName;
+  const findCurrencyCode = (currencyName) => {
+    for (let i = 0; i < currencyArr.length; i++) {
+      if (currencyArr[i][0] == currencyName) {
+        codeName = currencyArr[i][1];
+        return codeName;
+      }
+    }
+  };
+
+  // EVENT HANDLERS
+
+  // input tag handler
   const handleInput = (event) => {
     const baseValue = event.target.value;
 
-    baseValue >= 0
+    baseValue > 0
       ? setTargetValue(baseValue * latestRate)
       : setTargetValue("Enter a valid number!");
   };
 
-  const findCode = () => {};
+  // select tag handler
+  const handleSelect = (event) => {
+    const selectedCurrency = event.target.value;
+
+    const codeName = findCurrencyCode(selectedCurrency);
+    if (event.target.name == "base-currency-dropdown") {
+      setBaseCurrency(selectedCurrency);
+      console.log(baseCurrency);
+      dispatch(baseChanger(codeName));
+    } else {
+      setTargetCurrency(selectedCurrency);
+      dispatch(targetChanger(codeName));
+    }
+    dispatch(fetchData());
+    dispatch(statusChanger("idle"));
+  };
 
   return (
     <>
@@ -50,10 +106,15 @@ const Calculator = () => {
             type="number"
             onChange={(e) => handleInput(e)}
             placeholder="1"
+            id="base-currency"
           />
-          <select>
+          <select
+            name="base-currency-dropdown"
+            value={baseCurrency}
+            onChange={(e) => handleSelect(e)}
+          >
             {dropDownArr.map((curr) => {
-              return <option key={curr}>{curr}</option>;
+              return <option key={findCurrencyCode(curr)}>{curr}</option>;
             })}
           </select>
         </div>
@@ -63,10 +124,14 @@ const Calculator = () => {
         {/* target currnecy */}
         <div className="currency-field">
           <label htmlFor="target-currency">target currency</label>
-          <input value={targetValue} readOnly />
-          <select>
+          <input value={targetValue} readOnly id="target-currency" />
+          <select
+            name="target-currency-dropdown"
+            value={targetCurrency}
+            onChange={(e) => handleSelect(e)}
+          >
             {dropDownArr.map((curr) => {
-              return <option key={curr}>{curr}</option>;
+              return <option key={findCurrencyCode(curr)}>{curr}</option>;
             })}
           </select>
         </div>
