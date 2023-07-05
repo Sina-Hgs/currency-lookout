@@ -26,7 +26,6 @@ const Calculator = () => {
   const [baseCurrency, setBaseCurrency] = useState();
   const [targetCurrency, setTargetCurrency] = useState();
 
-  // const [latestRate, setLatestRate] = useState(0);
   const [targetValue, setTargetValue] = useState(0);
 
   const dispatch = useDispatch();
@@ -45,15 +44,14 @@ const Calculator = () => {
     }
   };
 
-  let latestRate = 2;
+  let latestRate;
   useEffect(() => {
     // only changing the state when the fetchData in store has succeeded, otherwise I'll get an error for
     // trying to select an index in the storedData that doesn't exist
+    setBaseCurrency(findCurrencyName(baseCode));
+    setTargetCurrency(findCurrencyName(targetCode));
     if (dataStatus == "succeded") {
-      setBaseCurrency(findCurrencyName(baseCode));
-      setTargetCurrency(findCurrencyName(targetCode));
       latestRate = storeData[storeData.length - 1][1][0][1];
-
       setTargetValue(latestRate);
     }
   }, [storeData]);
@@ -94,8 +92,28 @@ const Calculator = () => {
       setTargetCurrency(selectedCurrency);
       dispatch(targetChanger(codeName));
     }
-    dispatch(fetchData());
+    if (dataStatus == "idle") {
+      dispatch(fetchData());
+    }
     dispatch(statusChanger("idle"));
+  };
+
+  // swap button handler
+  const swapButtonHandler = () => {
+    let temp = baseCurrency;
+    console.log(temp, "TEMP");
+    setBaseCurrency(targetCurrency);
+
+    setTargetCurrency(temp);
+    console.log(targetCurrency, "TARGET");
+
+    // const x = findCurrencyCode(baseCurrency);
+    // console.log(x);
+    // dispatch(baseChanger(x));
+    // dispatch(targetChanger(findCurrencyCode(targetCurrency)));
+
+    // dispatch(fetchData());
+    // dispatch(statusChanger("idle"));
   };
 
   return (
@@ -121,7 +139,11 @@ const Calculator = () => {
           </select>
         </div>
 
-        <FontAwesomeIcon icon={faArrowRightArrowLeft} size="2xl" />
+        <FontAwesomeIcon
+          icon={faArrowRightArrowLeft}
+          size="2xl"
+          onClick={() => swapButtonHandler()}
+        />
 
         {/* target currnecy */}
         <div className="currency-field">
