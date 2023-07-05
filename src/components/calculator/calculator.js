@@ -26,8 +26,8 @@ const Calculator = () => {
   const [baseCurrency, setBaseCurrency] = useState();
   const [targetCurrency, setTargetCurrency] = useState();
 
-  const [latestRate, setLatestRate] = useState(0);
-  const [targetValue, setTargetValue] = useState(latestRate);
+  // const [latestRate, setLatestRate] = useState(0);
+  const [targetValue, setTargetValue] = useState(0);
 
   const dispatch = useDispatch();
 
@@ -45,14 +45,15 @@ const Calculator = () => {
     }
   };
 
+  let latestRate = 2;
   useEffect(() => {
     // only changing the state when the fetchData in store has succeeded, otherwise I'll get an error for
     // trying to select an index in the storedData that doesn't exist
     if (dataStatus == "succeded") {
       setBaseCurrency(findCurrencyName(baseCode));
       setTargetCurrency(findCurrencyName(targetCode));
+      latestRate = storeData[storeData.length - 1][1][0][1];
 
-      setLatestRate(storeData[storeData.length - 1][1][0][1]);
       setTargetValue(latestRate);
     }
   }, [storeData]);
@@ -73,6 +74,7 @@ const Calculator = () => {
   // input tag handler
   const handleInput = (event) => {
     const baseValue = event.target.value;
+    latestRate = storeData[storeData.length - 1][1][0][1];
 
     baseValue > 0
       ? setTargetValue(baseValue * latestRate)
