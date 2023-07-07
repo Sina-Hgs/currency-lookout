@@ -16,7 +16,6 @@ const Timing = () => {
   const dispatch = useDispatch();
 
   const [startingDate, setStartingDate] = useState(week);
-  const [status, setStatus] = useState(dataStatus);
 
   // const statusChecker = () => {
   //   switch (dataStatus) {
@@ -47,16 +46,17 @@ const Timing = () => {
   // the hook runs and gives the calculated starting date and today's date(end date)
   // to the store, then if the status that taken from store is "idle" starts the data fetching
   useEffect(() => {
-    dispatch(timeGetter([startingDate, today]));
     if (dataStatus == "idle") {
+      dispatch(timeGetter([startingDate, today]));
+      console.log("FROM TIMING😘");
       dispatch(fetchData());
     }
   }, [dataStatus]);
 
   const changeDateHandler = (newDate) => {
     setStartingDate(newDate);
-    setStatus("idle");
-    dispatch(statusChanger(status));
+
+    dispatch(statusChanger("idle"));
   };
 
   return (
