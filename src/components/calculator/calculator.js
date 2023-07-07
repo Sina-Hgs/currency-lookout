@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 import {
-  fetchData,
   baseChanger,
   targetChanger,
   statusChanger,
@@ -92,29 +91,22 @@ const Calculator = () => {
       setTargetCurrency(selectedCurrency);
       dispatch(targetChanger(codeName));
     }
-    if (dataStatus == "idle") {
-      dispatch(fetchData());
-    }
+    // changing the status so the timing useEffect that depends on the status
+    // runs fetchData
     dispatch(statusChanger("idle"));
   };
 
   // swap button handler
   const swapButtonHandler = () => {
-    let temp = baseCurrency;
-    console.log(temp, "TEMP");
-    setBaseCurrency(targetCurrency);
-
-    setTargetCurrency(temp);
-    console.log(targetCurrency, "TARGET");
-
-    // const x = findCurrencyCode(baseCurrency);
-    // console.log(x);
-    // dispatch(baseChanger(x));
-    // dispatch(targetChanger(findCurrencyCode(targetCurrency)));
-
-    // dispatch(fetchData());
-    // dispatch(statusChanger("idle"));
+    dispatch(baseChanger(findCurrencyCode(targetCurrency)));
+    dispatch(targetChanger(findCurrencyCode(baseCurrency)));
+    dispatch(statusChanger("idle"));
   };
+
+  // useEffect(() => {
+  //   console.log("FROM SWAP😃🤣");
+    
+  // }, [baseCode, targetCode]);
 
   return (
     <>
