@@ -7,10 +7,10 @@ import {
   statusChanger,
 } from "../../store/currencySlice";
 
+import { currencyArr, dropDownArr } from "./getCurrenciesList";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightArrowLeft } from "@fortawesome/free-solid-svg-icons";
-
-import { currencyArr, dropDownArr } from "./getCurrenciesList";
 
 import "./calculator.css";
 
@@ -55,7 +55,7 @@ const Calculator = () => {
     }
   }, [storeData]);
 
-  // finding code of the currency based on its full name for keys in JSX
+  // finding code of the currency based on its full name for keys in JSX and dispatching to store
   let codeName;
   const findCurrencyCode = (currencyName) => {
     for (let i = 0; i < currencyArr.length; i++) {
@@ -66,11 +66,12 @@ const Calculator = () => {
     }
   };
 
-  // EVENT HANDLERS
+  // ----EVENT HANDLERS----
 
   // input tag handler
   const handleInput = (event) => {
-    const baseValue = event.target.value;
+    let baseValue = event.target.value;
+
     latestRate = storeData[storeData.length - 1][1][0][1];
 
     baseValue > 0
@@ -91,8 +92,8 @@ const Calculator = () => {
       setTargetCurrency(selectedCurrency);
       dispatch(targetChanger(codeName));
     }
-    // changing the status so the timing useEffect that depends on the status
-    // runs fetchData
+    // changing the status so the timing useEffect hook that depends on the status
+    // dispatches fetchData()
     dispatch(statusChanger("idle"));
   };
 
@@ -102,11 +103,6 @@ const Calculator = () => {
     dispatch(targetChanger(findCurrencyCode(baseCurrency)));
     dispatch(statusChanger("idle"));
   };
-
-  // useEffect(() => {
-  //   console.log("FROM SWAP😃🤣");
-    
-  // }, [baseCode, targetCode]);
 
   return (
     <>
@@ -140,7 +136,11 @@ const Calculator = () => {
         {/* target currnecy */}
         <div className="currency-field">
           <label htmlFor="target-currency">target currency</label>
-          <input value={targetValue} readOnly id="target-currency" />
+          <input
+            value={targetValue.toLocaleString("en-US")}
+            readOnly
+            id="target-currency"
+          />
           <select
             name="target-currency-dropdown"
             value={targetCurrency}
