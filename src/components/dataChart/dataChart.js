@@ -31,8 +31,8 @@ const DataChart = () => {
     datasets: [
       {
         label: curr,
-        backgroundColor: "pink",
-        borderColor: "pink",
+        backgroundColor: "white",
+        borderColor: "white",
         data: rates,
       },
     ],

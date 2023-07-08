@@ -8,7 +8,7 @@ const initialState = {
   // base is the base currency and target is the target currency
   // for example base of BTC and target of USD means:
   // how much is 1 BTC in USD? 1 BITCOIN= $31,000
-  base: "BTC",
+  base: "EUR",
   target: "USD",
   status: "idle",
   error: null,
