@@ -1,10 +1,12 @@
-/* .error-message {
+.error-message {
     font-size: 32px;
     display: flex;
     justify-content: center;
     margin: 20px;
     padding: 10px;
-} */
+    color: red;
+    position: absolute;
+}
 
 .chart {
     margin: auto;
