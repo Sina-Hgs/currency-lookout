@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
-import "./dataChart.css";
+import "./dataChart.scss";
 
 const DataChart = () => {
   const storeData = useSelector((state) => state.currency.data);

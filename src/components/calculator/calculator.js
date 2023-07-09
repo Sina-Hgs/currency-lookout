@@ -12,7 +12,7 @@ import { currencyArr, dropDownArr, err } from "./getCurrenciesList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-import "./calculator.css";
+import "./calculator.scss";
 
 const Calculator = () => {
   const storeData = useSelector((state) => state.currency.data);
@@ -113,7 +113,9 @@ const Calculator = () => {
       {/* base currency */}
       <div className="calculator">
         <div className="currency-field">
-          <label htmlFor="base-currency">base currency</label>
+          <label className="input-label" htmlFor="base-currency">
+            base currency
+          </label>
           <input
             type="number"
             onChange={(e) => handleInput(e)}
@@ -138,8 +140,10 @@ const Calculator = () => {
         />
 
         {/* target currnecy */}
+        <label className="input-label" htmlFor="target-currency">
+          target currency
+        </label>
         <div className="currency-field">
-          <label htmlFor="target-currency">target currency</label>
           <input
             value={targetValue.toLocaleString("en-US")}
             readOnly

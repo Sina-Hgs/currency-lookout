@@ -7,7 +7,7 @@ import Footer from "./components/footer/footer";
 import { Provider } from "react-redux";
 import store from "./store/store";
 
-import "./App.css";
+import "./App.scss";
 
 const App = () => {
   return (
