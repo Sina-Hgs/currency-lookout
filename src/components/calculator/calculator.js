@@ -7,7 +7,7 @@ import {
   statusChanger,
 } from "../../store/currencySlice";
 
-import { currencyArr, dropDownArr } from "./getCurrenciesList";
+import { currencyArr, dropDownArr, err } from "./getCurrenciesList";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -72,11 +72,15 @@ const Calculator = () => {
   const handleInput = (event) => {
     let baseValue = event.target.value;
 
-    latestRate = storeData[storeData.length - 1][1][0][1];
+    if (dataStatus == "succeded") {
+      latestRate = storeData[storeData.length - 1][1][0][1];
 
-    baseValue > 0
-      ? setTargetValue(baseValue * latestRate)
-      : setTargetValue("Enter a valid number!");
+      baseValue > 0
+        ? setTargetValue(baseValue * latestRate)
+        : setTargetValue("Enter a valid number!");
+    } else if (dataStatus == "failed") {
+      setTargetValue("Sorry, failed to fetch data.");
+    }
   };
 
   // select tag handler

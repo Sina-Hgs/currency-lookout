@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 import { useSelector } from "react-redux";
 
 import Chart from "chart.js/auto";
@@ -8,22 +6,21 @@ import { Line } from "react-chartjs-2";
 import "./dataChart.css";
 
 const DataChart = () => {
-  const error = useSelector((state) => state.currency.error);
   const storeData = useSelector((state) => state.currency.data);
-  const [data, setData] = useState(storeData);
 
-  useEffect(() => {
-    setData(storeData);
-  }, [storeData]);
+  const error = useSelector((state) => state.currency.error);
 
   // seperating the dates, currency rates, and target currency's name
   let dates = [];
   let rates = [];
   let curr;
-  for (let i = 0; i < data.length; i++) {
-    dates.push(data[i][0]);
-    rates.push(data[i][1][0][1]);
-    curr = data[0][1][0][0];
+
+  if (storeData != null) {
+    for (let i = 0; i < storeData.length; i++) {
+      dates.push(storeData[i][0]);
+      rates.push(storeData[i][1][0][1]);
+      curr = storeData[0][1][0][0];
+    }
   }
 
   const chartData = {

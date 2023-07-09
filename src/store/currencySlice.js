@@ -67,22 +67,23 @@ const currencySlice = createSlice({
         console.log(`loading message from store!🌓status: ${state.status}`);
       })
       .addCase(fetchData.fulfilled, (state, action) => {
+        state.status = "succeded";
+        console.log(`success message from store!🌕status: ${state.status}`);
+
         state.data = action.payload;
         console.log("fetched data:📊", state.data);
 
         state.error = null;
-
-        state.status = "succeded";
-        console.log(`success message from store!🌕status: ${state.status}`);
       })
       .addCase(fetchData.rejected, (state, action) => {
         state.status = "failed";
         console.error(
-          "error message from store: ",
+          "💀error message from store: ",
           action.error.message,
           `💥status: ${state.status}`
         );
         state.error = action.error.message;
+        state.data = null;
       });
   },
 });
