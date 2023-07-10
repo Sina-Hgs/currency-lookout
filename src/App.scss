@@ -17,6 +17,24 @@
   font-size: 16px;
 }
 
+.fade-in-span{
+  animation: fade-in 0.8s 1 ease-in;
+  
+
+}
+
+@keyframes fade-in {
+  0%{
+    opacity: 0%;
+  }
+  50%{
+    opacity: 50%;
+  }
+  100%{
+    opacity: 100%;
+  }
+}
+
 /* this class is used in the header & footer components */
 .title {
   font-weight: 700;

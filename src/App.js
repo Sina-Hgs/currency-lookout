@@ -13,11 +13,13 @@ const App = () => {
   return (
     <Provider store={store}>
       <div className="App">
-        <Header />
-        <DataChart />
-        <Timing />
-        <Calculator />
-        <Footer />
+        <span className="fade-in-span">
+          <Header />
+          <DataChart />
+          <Timing />
+          <Calculator />
+          <Footer />
+        </span>
       </div>
     </Provider>
   );
