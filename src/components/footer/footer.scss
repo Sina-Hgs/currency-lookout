@@ -3,9 +3,9 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-    margin-top: 100px;
+    margin-top: 50px;
     background: rgba(0, 0, 0, 0.79);
-    border-top: 1px solid #000000;
+    border-top: 2px solid #000000;
 }
 
 .footer-title {
@@ -23,7 +23,7 @@ footer {
 .github-icon {
     font-size: 48px;
     color: #ffffffcd;
-    transition: 1s;
+    transition: 0.5s;
 }
 
 .github-icon:hover {

@@ -14,9 +14,9 @@ const App = () => {
     <Provider store={store}>
       <div className="App">
         <Header />
-        <Calculator />
-        <Timing />
         <DataChart />
+        <Timing />
+        <Calculator />
         <Footer />
       </div>
     </Provider>

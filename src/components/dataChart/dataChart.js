@@ -1,5 +1,7 @@
 import { useSelector } from "react-redux";
 
+import Spinner from "../spinner/spinner";
+
 import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
@@ -7,8 +9,8 @@ import "./dataChart.scss";
 
 const DataChart = () => {
   const storeData = useSelector((state) => state.currency.data);
-
   const error = useSelector((state) => state.currency.error);
+  const dataStatus = useSelector((state) => state.currency.status);
 
   // seperating the dates, currency rates, and target currency's name
   let dates = [];
@@ -23,13 +25,17 @@ const DataChart = () => {
     }
   }
 
+  Chart.defaults.color = "#ffff";
+  Chart.defaults.font.family = "lato";
+
   const chartData = {
     labels: dates,
     datasets: [
       {
         label: curr,
-        backgroundColor: "white",
-        borderColor: "white",
+        backgroundColor: "#04ff00",
+        borderColor: "#04ff00",
+        color: "#04ff00",
         data: rates,
       },
     ],
@@ -39,7 +45,8 @@ const DataChart = () => {
     <>
       <span className="error-message">{error}</span>
       <div className="chart-wrapper">
-        <Line data={chartData} className="chart" />
+        <Line data={chartData} />
+        {dataStatus == "loading" ? <Spinner /> : <></>}
       </div>
     </>
   );

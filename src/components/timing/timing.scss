@@ -1,0 +1,35 @@
+.timing{
+    display: grid;
+    grid-template-areas: "btn btn btn btn";
+    margin: 10px 25px;
+}
+
+.timing-btn{
+    text-transform: uppercase;
+    padding: 10px 0;
+    background: rgba(0, 0, 0, 0.79);        
+    border: none;
+    outline-color: #ffff;
+    border-right: solid 1px #ffff;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 600;
+    transition: 0.5s;
+    cursor: pointer;
+
+    &:last-child{
+        border: none;
+    }
+
+    &:focus{
+        background: rgb(0, 0, 0);
+        color: #04ff00;
+    }
+
+    &:hover {
+        background: rgb(0, 0, 0);
+        color: #04ff00;
+    }
+    
+    
+}

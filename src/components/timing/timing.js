@@ -9,7 +9,7 @@ import {
 
 import { today, week, oneMonth, sixMonths, year } from "./calculateDate";
 
-import Spinner from "../spinner/spinner";
+import "./timing.scss";
 
 const Timing = () => {
   const dataStatus = useSelector((state) => state.currency.status);
@@ -34,34 +34,38 @@ const Timing = () => {
   return (
     <div className="timing">
       <button
+        className="timing-btn"
         onClick={() => {
           changeDateHandler(week);
         }}
       >
-        1 WEEK
+        1 Week
       </button>
       <button
+        className="timing-btn"
         onClick={() => {
           changeDateHandler(oneMonth);
         }}
       >
-        1 MONTHS
+        1 Months
       </button>
       <button
+        className="timing-btn"
         onClick={() => {
           changeDateHandler(sixMonths);
         }}
       >
-        6 MONTHS
+        6 Months
       </button>
       <button
+        className="timing-btn"
         onClick={() => {
           changeDateHandler(year);
         }}
       >
-        1 YEAR
+        1 Year
       </button>
-      {dataStatus == "loading" ? <Spinner /> : <></>}
+      
     </div>
   );
 };
