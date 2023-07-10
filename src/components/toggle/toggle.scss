@@ -1,6 +1,6 @@
 .toggle {
-    width: 80px;
-    height: 55px;
+    width: 70px;
+    height: 50px;
     padding: 0 10px;
     border: 3px solid #058902;
     border-radius: 75px;
@@ -13,11 +13,11 @@
 .toggle-btn {
     position: absolute;
     border-radius: 100px;
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     background: #0F690D;
     margin: 0 -5px;
-    transition: 1s;
+    transition: 0.5s;
 }
 
 .toggle-btn:hover {

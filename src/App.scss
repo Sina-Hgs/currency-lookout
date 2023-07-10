@@ -12,9 +12,27 @@
   color: #ffff;
 
   height: max-content;
-  background: linear-gradient(180deg, #000000 0%, #0f690d 100%);
+  background: linear-gradient(180deg, #000000 10%, #014100 70%, #06b003 100%);
   font-family: lato;
   font-size: 16px;
+}
+
+.fade-in-span{
+  animation: fade-in 0.8s 1 ease-in;
+  
+
+}
+
+@keyframes fade-in {
+  0%{
+    opacity: 0%;
+  }
+  50%{
+    opacity: 50%;
+  }
+  100%{
+    opacity: 100%;
+  }
 }
 
 /* this class is used in the header & footer components */
