@@ -1,17 +1,14 @@
 .spinner {
-    font-size: 16px;
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    position:fixed;
-    top:50%;
+    position:absolute;
+    top:30%;
     left:50%;
     animation: spinning 1s infinite ease;
-    transform: translateZ(0);
 }
 
 @keyframes spinning {
-
     0%,
     100% {
         box-shadow: 0px -41px 0px 0px #ffffff, 29px -29px 0 0px rgba(255, 255, 255, 0.2), 40px 0px 0 0px rgba(255, 255, 255, 0.2), 28px 28px 0 0px rgba(255, 255, 255, 0.2), 0px 40px 0 0px rgba(255, 255, 255, 0.2), -29px 29px 0 0px rgba(255, 255, 255, 0.2), -41px 0px 0 0px rgba(255, 255, 255, 0.5), -29px -29px 0 0px rgba(255, 255, 255, 0.7);

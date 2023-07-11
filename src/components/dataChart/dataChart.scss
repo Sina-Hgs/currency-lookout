@@ -1,15 +1,14 @@
 .error-message {
     font-size: 32px;
-    display: flex;
-    justify-content: center;
-    margin: 20px;
-    padding: 10px;
-    color: red;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
     position: absolute;
+    left: 200px;
+    top:350px;
 }
 
 .chart-wrapper{
-    margin: 0px 150px;
+    margin: 0px 100px 25px 100px;
     // background-color: rgba(0, 0, 0, 0.79);
 }
 

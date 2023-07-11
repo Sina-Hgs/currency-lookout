@@ -4,10 +4,10 @@
     margin: 10px 25px;
 }
 
-.timing-btn{
+@mixin timing{
     text-transform: uppercase;
     padding: 10px 0;
-    background: rgba(0, 0, 0, 0.79);        
+    background: rgba(0, 0, 0, 0.79);
     border: none;
     outline-color: #ffff;
     border-right: solid 1px #ffff;
@@ -17,19 +17,27 @@
     transition: 0.5s;
     cursor: pointer;
 
-    &:last-child{
+    &:last-child {
         border: none;
+    }
+}
+
+.timing-btn{
+    @include timing();
+
+    &:hover {
+        background-color: #04ff00;
+        color: rgb(0, 0, 0);
     }
 
     &:focus{
-        background: rgb(0, 0, 0);
-        color: #04ff00;
+        background-color: #04ff00;
+        color: rgb(0, 0, 0);
     }
+}
 
-    &:hover {
-        background: rgb(0, 0, 0);
-        color: #04ff00;
-    }
-    
-    
+.active-btn{
+    @include timing();
+    background-color: #04ff00;
+    color: rgb(0, 0, 0);
 }

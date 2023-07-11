@@ -18,9 +18,14 @@
     background: #0F690D;
     margin: 0 -5px;
     transition: 0.5s;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #04ff00;
+    }
+    
+    &:focus {
+        background-color: #04ff00;
+    }
 }
 
-.toggle-btn:hover {
-    background-color: #1acd17;
-    cursor: pointer;
-}

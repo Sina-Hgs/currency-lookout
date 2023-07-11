@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 import Spinner from "../spinner/spinner";
 
-import Chart from "chart.js/auto";
+import Chart, { scales } from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
 import "./dataChart.scss";

@@ -113,14 +113,14 @@ const Calculator = () => {
       {/* base currency */}
       <div className="calculator">
         <div className="currency-field base-field">
-          <label className="input-label" htmlFor="base-currency">
+          <label className="input-label" htmlFor="base-value">
             base currency
           </label>
           <input
             type="number"
             onChange={(e) => handleInput(e)}
-            placeholder="Enter a number to convert"
-            id="base-currency"
+            placeholder="Enter a number here to convert"
+            id="base-value"
           />
           <select
             name="base-currency-dropdown"
@@ -133,24 +133,26 @@ const Calculator = () => {
           </select>
         </div>
 
-        <FontAwesomeIcon
-          icon={faArrowRightArrowLeft}
-          size="2xl"
-          id="swap-btn"
-          tabIndex={0}
-          onClick={() => swapButtonHandler()}
-        />
+        <div id="swap-btn">
+          <FontAwesomeIcon
+            icon={faArrowRightArrowLeft}
+            size="2xl"
+            tabIndex={0}
+            onClick={() => swapButtonHandler()}
+          />
+          <span id="tooltip">Swap currencies</span>
+        </div>
 
         {/* target currnecy */}
 
         <div className="currency-field target-field">
-          <label className="input-label" htmlFor="target-currency">
+          <label className="input-label" htmlFor="target-value">
             target currency
           </label>
           <input
             value={targetValue.toLocaleString("en-US")}
             readOnly
-            id="target-currency"
+            id="target-value"
           />
           <select
             name="target-currency-dropdown"

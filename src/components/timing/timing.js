@@ -26,46 +26,60 @@ const Timing = () => {
     }
   }, [dataStatus]);
 
+  // EVENT HANDLERS
+
   const changeDateHandler = (newDate) => {
     setStartingDate(newDate);
     dispatch(statusChanger("idle"));
   };
 
+  const changeStyle = (event) => {
+    const buttons = document.getElementsByClassName("timing-btn");
+    for (let i = 0; i < buttons.length; i++) {
+      buttons[i].classList.remove("active-btn");
+    }
+
+    event.target.classList.add("active-btn");
+  };
+
   return (
     <div className="timing">
       <button
-        className="timing-btn"
-        onClick={() => {
+        className="timing-btn active-btn"
+        onClick={(e) => {
           changeDateHandler(week);
+          changeStyle(e);
         }}
       >
         1 Week
       </button>
       <button
         className="timing-btn"
-        onClick={() => {
+        onClick={(e) => {
           changeDateHandler(oneMonth);
+          changeStyle(e);
         }}
       >
         1 Months
       </button>
       <button
         className="timing-btn"
-        onClick={() => {
+        onClick={(e) => {
           changeDateHandler(sixMonths);
+          changeStyle(e);
         }}
       >
         6 Months
       </button>
       <button
         className="timing-btn"
-        onClick={() => {
+        onClick={(e) => {
           changeDateHandler(year);
+          changeStyle(e);
         }}
       >
         1 Year
       </button>
-      
     </div>
   );
 };

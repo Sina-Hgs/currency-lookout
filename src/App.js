@@ -18,6 +18,17 @@ const App = () => {
           <DataChart />
           <Timing />
           <Calculator />
+          <p id="tip">
+            <span
+              style={{
+                color: "#ffff",
+                fontSize: "20px",
+              }}
+            >
+              Tip:{" "}
+            </span>
+            Use the calculator above to change the chart or convert currencies.
+          </p>
           <Footer />
         </span>
       </div>
