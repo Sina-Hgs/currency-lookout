@@ -3,30 +3,45 @@
     flex-direction: row;
     justify-content:space-between;
     align-items:flex-start;
-    margin:10px 25px;
+    margin:50px 25px;
     text-transform: uppercase;
-
-    
 }
 
 #swap-btn{
-    font-size: 55px;
-    color: #ffffff;
+    font-size: 30px;
+    color: #000000;
     padding: 0 5px;
     outline-color: #ffff;
     cursor: pointer;
-    
+    transition: 0.4s;
+
     &:hover{
         color: #04ff00;
         transform: scale(1.2);
-        transition: 0.5s;
+        :nth-child(2){
+            visibility: visible;
+        }
     }
 
-    &:focus {
+    & :first-child:focus{
         color: #04ff00;
         transform: scale(1.2);
-        transition: 0.5s;
     }
+}
+
+
+#tooltip{
+    position: absolute;
+    margin-left:10px;
+    margin-top: -30px;
+    background-color: rgba(0, 0, 0, 0.823);
+    color: #ffffff;
+    padding: 5px 25px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 16px;
+    visibility: hidden;
 }
 
 
@@ -54,7 +69,6 @@
 
     &:hover {
         background: rgb(0, 0, 0);
-        
     }
     &:focus {
         background: rgb(0, 0, 0);
@@ -68,6 +82,7 @@ label{
     padding: 10px 0;
     font-weight: 600;
     font-size: 18px;
+    letter-spacing: 5px;
     text-shadow: 0px 7px 4px #000000;
 }
 
@@ -78,7 +93,15 @@ input{
     
 }
 
-#target-currency{
+#base-value{
+    background-color: #ffff;
+    color: #000000;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+
+#target-value{
     font-weight: 600;
     text-decoration: underline;
     background-color: #04ff00c7;
@@ -91,6 +114,7 @@ select{
     font-weight: 600;
     grid-area: select;
     text-align: left;
+    padding-left:5px;
     cursor: pointer;
 }
 

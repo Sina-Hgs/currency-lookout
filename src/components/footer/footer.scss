@@ -3,7 +3,7 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-    margin-top: 50px;
+    margin-top: 20px;
     background: rgba(0, 0, 0, 0.79);
     border-top: 2px solid #000000;
 }
@@ -13,7 +13,7 @@ footer {
 }
 
 .footer-wrapper {
-    margin: 0 75px;
+    margin: 0 25px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -23,9 +23,17 @@ footer {
 .github-icon {
     font-size: 48px;
     color: #ffffffcd;
-    transition: 0.5s;
+    transition: 0.4s;
+    
+    &:hover {
+        color: #04ff00;
+        transform: scale(1.2);
+    
+    }
+    
+    &:focus {
+        color: #04ff00;
+        transform: scale(1.2);
+    }
 }
 
-.github-icon:hover {
-    color: #1acd17;
-}
