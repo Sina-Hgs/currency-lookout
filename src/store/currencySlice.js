@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 // INITIAL STATE
 const initialState = {
-  data: [],
+  data: null,
   startDate: undefined,
   endDate: undefined,
   // base is the base currency and target is the target currency
