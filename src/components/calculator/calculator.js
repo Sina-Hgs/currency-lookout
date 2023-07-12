@@ -82,7 +82,7 @@ const Calculator = () => {
 
       baseValue > 0
         ? setTargetValue(baseValue * latestRate)
-        : setTargetValue("Enter a valid number!");
+        : setTargetValue("Enter a valid number for base!");
     } else if (dataStatus == "failed") {
       setTargetValue("Sorry, failed to fetch data.");
     }
