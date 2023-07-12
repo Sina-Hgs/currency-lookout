@@ -27,6 +27,7 @@ const DataChart = () => {
 
   Chart.defaults.color = "#ffff";
   Chart.defaults.font.family = "lato";
+  Chart.defaults.borderColor = "#001f00";
 
   const chartData = {
     labels: dates,
@@ -36,6 +37,11 @@ const DataChart = () => {
         backgroundColor: "#04ff00",
         borderColor: "#04ff00",
         color: "#04ff00",
+        fill: {
+          target: "origin",
+          above: "rgba(4, 78, 2, 0.3)",
+        },
+
         data: rates,
       },
     ],
