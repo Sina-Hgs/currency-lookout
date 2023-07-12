@@ -51,7 +51,6 @@ const Calculator = () => {
     setTargetCurrency(findCurrencyName(targetCode));
     if (dataStatus == "succeded") {
       const baseValue = document.getElementById("base-value").value;
-      console.log(baseValue);
 
       latestRate = storeData[storeData.length - 1][1][0][1];
 
