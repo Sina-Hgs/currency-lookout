@@ -9,20 +9,20 @@ const getCurrenciesList = async () => {
     const fetchedCurrencies = fetchedData.symbols;
 
     // changing the fetched data to array format
-    const tempArr = Object.entries(fetchedCurrencies);
+    const fetchedCurrenciesArr = Object.entries(fetchedCurrencies);
 
     let temp;
-    for (let i = 0; i < tempArr.length; i++) {
-      // removing the first index of each nested array in tempArr
+    for (let i = 0; i < fetchedCurrenciesArr.length; i++) {
+      // removing the first index of each nested array in fetchedCurrenciesArr
       // the first index is same as the code property of the object inside each nested array
       // so I don't need it and remove it to declutter my data
       // I use the shift() method even though it mutates my data
       // because I see no reason to take up more memory space for this particular case
-      tempArr[i].shift();
+      fetchedCurrenciesArr[i].shift();
 
       // changing the nested object in each array to an array type and adding them to currencyArr
       // so I can sort them by alphabetical order
-      temp = Object.values(tempArr[i][0]);
+      temp = Object.values(fetchedCurrenciesArr[i][0]);
       currencyArr.push(temp);
 
       // not able to use methods like filter or map without more boilercode because
@@ -35,6 +35,9 @@ const getCurrenciesList = async () => {
       // because the strings are writting in capitalize (each word) format that works ok with UFT-16
       dropDownArr.sort();
     }
+
+    // returning this for testing with Jest
+    return fetchedCurrenciesArr;
   } catch (error) {
     console.error("😵Had an error while fetching the currencies list:", error);
   }
@@ -48,4 +51,4 @@ const getCurrenciesList = async () => {
 
 getCurrenciesList();
 
-export { currencyArr, dropDownArr };
+export { getCurrenciesList, currencyArr, dropDownArr };
