@@ -50,8 +50,13 @@ const Calculator = () => {
     setBaseCurrency(findCurrencyName(baseCode));
     setTargetCurrency(findCurrencyName(targetCode));
     if (dataStatus == "succeded") {
+      const baseValue = document.getElementById("base-value").value;
+
       latestRate = storeData[storeData.length - 1][1][0][1];
-      setTargetValue(latestRate);
+
+      baseValue > 0
+        ? setTargetValue(latestRate * baseValue)
+        : setTargetValue(latestRate);
     }
   }, [storeData]);
 
@@ -121,6 +126,7 @@ const Calculator = () => {
             onChange={(e) => handleInput(e)}
             placeholder="Enter a number here to convert"
             id="base-value"
+            disabled={dataStatus == "loading" ? true : false}
           />
           <select
             name="base-currency-dropdown"
