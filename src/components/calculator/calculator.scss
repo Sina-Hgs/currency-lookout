@@ -5,10 +5,11 @@
     align-items:flex-start;
     margin:50px 25px;
     text-transform: uppercase;
+    font-family: lato, Arial;
 }
 
 #swap-btn{
-    font-size: 30px;
+    font-size: 28px;
     color: #000000;
     padding: 0 5px;
     outline-color: #ffff;
@@ -18,6 +19,7 @@
     &:hover{
         color: #04ff00;
         transform: scale(1.2);
+        
         :nth-child(2){
             visibility: visible;
         }
@@ -35,15 +37,16 @@
     margin-left:10px;
     margin-top: -30px;
     background-color: rgba(0, 0, 0, 0.823);
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.412);
     color: #ffffff;
     padding: 5px 25px;
     border-radius: 2px;
     text-transform: uppercase;
     text-align: center;
     font-size: 16px;
+    
     visibility: hidden;
 }
-
 
 .currency-field{
     display: grid;
@@ -56,6 +59,13 @@
     align-items: center;
 }
 
+@mixin active {
+    background-color: #04ff00;
+    color: rgb(0, 0, 0);
+    text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.412);
+    transition: 0.5s;
+}
+
 @mixin calculator{
     background: rgba(0, 0, 0, 0.79);
     width: 300px;
@@ -65,13 +75,15 @@
     padding: 0;
     color: #ffffff;
     text-align: center;
+    font-family: lato, Arial;
+    font-size: 16px;
     transition: 0.5s;
 
     &:hover {
-        background: rgb(0, 0, 0);
+        @include active();
     }
     &:focus {
-        background: rgb(0, 0, 0);
+        @include active();
     }
 
 }
@@ -80,17 +92,22 @@ label{
     grid-area: label;
     text-align: center;
     padding: 10px 0;
+    
     font-weight: 600;
     font-size: 18px;
     letter-spacing: 5px;
     text-shadow: 0px 7px 4px #000000;
+
+    &:hover {
+        letter-spacing: 10px;
+        transition: 0.5s
+    }
 }
 
 input{
     @include calculator();
     border-right:solid 1px #ffffff ;
     grid-area: input;
-    
 }
 
 #base-value{
@@ -98,14 +115,25 @@ input{
     color: #000000;
     font-weight: 600;
     text-decoration: underline;
+
+    &:hover{
+        text-shadow: 5px 5px 4px #a4a4a4;
+    }
+    &:focus {
+        text-shadow: 5px 5px 4px #a4a4a4;
+    }
 }
 
 
 #target-value{
     font-weight: 600;
     text-decoration: underline;
-    background-color: #04ff00c7;
+    background-color: rgba(4, 255, 0, 0.78);
     color: #000000;
+
+    &:hover{
+        background-color: rgba(4, 255, 0, 1);
+    }
 }
 
 select{
@@ -120,7 +148,8 @@ select{
 
 option{
     color: #000000;
+    font-weight: normal;
+    text-shadow: none;
     background-color: #77d775;
-    font-family: "lato";
 }
 

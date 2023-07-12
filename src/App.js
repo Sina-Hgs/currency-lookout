@@ -27,7 +27,8 @@ const App = () => {
             >
               Tip:{" "}
             </span>
-            Use the calculator above to change the chart or convert currencies.
+            Use the calculator above to convert money, change or swap
+            currencies, & adjust the chart timing.
           </p>
           <Footer />
         </span>

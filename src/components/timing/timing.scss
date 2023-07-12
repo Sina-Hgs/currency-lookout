@@ -12,9 +12,11 @@
     outline-color: #ffff;
     border-right: solid 1px #ffff;
     color: #ffffff;
+    font-family: inherit;
+    font-size: 16px;
     text-align: center;
     font-weight: 600;
-    transition: 0.5s;
+    
     cursor: pointer;
 
     &:last-child {
@@ -22,22 +24,26 @@
     }
 }
 
+@mixin active{
+    background-color: #04ff00;
+    color: rgb(0, 0, 0);
+    text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.412);
+    transition: 0.5s;
+}
+
 .timing-btn{
     @include timing();
 
     &:hover {
-        background-color: #04ff00;
-        color: rgb(0, 0, 0);
+        @include active()
     }
 
     &:focus{
-        background-color: #04ff00;
-        color: rgb(0, 0, 0);
+        @include active()
     }
 }
 
 .active-btn{
     @include timing();
-    background-color: #04ff00;
-    color: rgb(0, 0, 0);
+    @include active();
 }
