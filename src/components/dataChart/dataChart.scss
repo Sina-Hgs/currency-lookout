@@ -56,7 +56,7 @@ canvas{
 
 @media only screen and (max-width:750px) {
     .chart-wrapper {
-        max-height: 300px;
+        height: 300px;
     }
 }
 
@@ -69,6 +69,12 @@ canvas{
 @media only screen and (max-width:500px) {
     .chart-wrapper{
         height: 200px;
+    }
+}
+
+@media only screen and (max-width:380px) {
+    .chart-wrapper {
+        height: 150px;
     }
 }
 

@@ -216,3 +216,14 @@ option{
         margin-left: -5px;
     }
 }
+
+@media only screen and (min-width:1800px) {
+    
+    .calculator{
+        justify-content: space-evenly;
+    }
+
+    .currency-field {
+        width: 550px;
+    }
+}
