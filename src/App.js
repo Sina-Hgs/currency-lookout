@@ -25,7 +25,7 @@ const App = () => {
                 fontSize: "20px",
               }}
             >
-              Tip:{" "}
+              Tip: <br></br>
             </span>
             Use the calculator above to convert money, change or swap
             currencies, & adjust the chart timing.

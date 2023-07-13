@@ -5,11 +5,14 @@
   bottom: 0;
   top: 0;
   color: #ffff;
-
-  height: max-content;
+  height:fit-content;
   background: linear-gradient(180deg, #000000 10%, #014100 70%, #06b003 100%);
   font-family: lato, Arial;
   font-size: 16px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .fade-in-span{

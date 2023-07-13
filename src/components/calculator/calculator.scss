@@ -2,16 +2,16 @@
     display: flex;
     flex-direction: row;
     justify-content:space-between;
-    align-items:flex-start;
+    align-items:flex-end;
     margin:50px 25px;
     text-transform: uppercase;
     font-family: lato, Arial;
 }
 
 #swap-btn{
-    font-size: 28px;
+    font-size: 24px;
     color: #000000;
-    padding: 0 5px;
+    padding: 2px 5px;
     outline-color: #ffff;
     cursor: pointer;
     transition: 0.4s;
@@ -39,8 +39,8 @@
     background-color: rgba(0, 0, 0, 0.823);
     box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.412);
     color: #ffffff;
-    padding: 5px 25px;
-    border-radius: 2px;
+    padding: 15px 15px;
+    border-radius: 5px;
     text-transform: uppercase;
     text-align: center;
     font-size: 16px;
@@ -51,9 +51,9 @@
 .currency-field{
     display: grid;
     grid-template-areas:
-    "title title"
-    "input select"
-    "label label";
+
+    "label label"
+    "input select";
     gap: 0px;
     justify-content: space-evenly;
     align-items: center;
@@ -68,9 +68,10 @@
 
 @mixin calculator{
     background: rgba(0, 0, 0, 0.79);
-    width: 300px;
+    width: 310px;
     height: 50px;
     border: none;
+    box-shadow: 0px 3px 7px #000000bb;
     outline-color: #ffff;
     padding: 0;
     color: #ffffff;
@@ -91,12 +92,11 @@
 label{
     grid-area: label;
     text-align: center;
-    padding: 10px 0;
-    
     font-weight: 600;
     font-size: 18px;
     letter-spacing: 5px;
     text-shadow: 0px 7px 4px #000000;
+    margin: 25px;
 
     &:hover {
         letter-spacing: 10px;
@@ -153,3 +153,37 @@ option{
     background-color: #77d775;
 }
 
+
+
+@media only screen and (max-width:1350px) {
+    .calculator{
+        flex-direction: column;
+        align-items: center;
+    }
+    
+
+    #swap-btn{
+        padding: 20px;
+        transform: rotate(90deg);
+    }
+
+    label{
+        margin-top: 0;
+    }
+
+
+
+
+}
+@media only screen and (max-width:670px) {
+    .currency-field {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    input{
+        border: none;
+        border-bottom: solid 1px #ffffff;
+    }
+}
