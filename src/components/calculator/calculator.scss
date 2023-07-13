@@ -156,26 +156,43 @@ option{
 
 
 @media only screen and (max-width:1350px) {
+   
     .calculator{
         flex-direction: column;
         align-items: center;
-    }
-    
 
-    #swap-btn{
+    }
+
+    .currency-field{
+        width:435px;
+    }
+
+    #swap-btn {
         padding: 20px;
         transform: rotate(90deg);
     }
 
+    select{
+        width: inherit;
+    }
+
+    input{
+        width: inherit;
+    }
+    
+
     label{
         margin-top: 0;
     }
-
-
-
-
 }
-@media only screen and (max-width:670px) {
+
+@media only screen and (max-width:950px) {
+
+    .calculator {
+        flex-direction: column;
+        align-items: center;
+        }
+
     .currency-field {
         display: flex;
         flex-wrap: wrap;
@@ -185,5 +202,17 @@ option{
     input{
         border: none;
         border-bottom: solid 1px #ffffff;
+    }
+}
+
+@media only screen and (max-width:450px) {
+    .currency-field {
+        width: 250px;
+    }
+
+    #tooltip {
+        font-size: 12px;
+        padding: 10px;
+        margin-left: -5px;
     }
 }

@@ -8,7 +8,10 @@
 }
 
 .chart-wrapper{
-    margin: 0px 75px 25px 75px;
+    height: 700px;
+    margin: 0px 75px;
+    display: flex;
+    justify-content: center;
 
 }
 
@@ -18,10 +21,54 @@ canvas{
     box-shadow: 0px 6px 7px #000000bb;
 }
 
-
-@media only screen and (max-width:1350px) {
+@media only screen and (min-width:1500px) {
     .chart-wrapper{
-        margin: 25px;
-        margin-top: 0;
+        height: 650px;
+        margin-bottom: 25px;
     }
 }
+
+
+@media only screen and (max-width:1450px) {
+    .chart-wrapper{
+        height: 550px;
+        margin: 0;
+        margin-bottom: 25px;
+        
+    }
+}
+
+@media only screen and (max-width:1150px) {
+    .chart-wrapper {
+            height: 450px;
+        }
+}
+
+@media only screen and (max-width:950px) {
+    .chart-wrapper{
+        height: 350px;
+    }
+
+    canvas{
+        padding: 0px;
+    }
+}
+
+@media only screen and (max-width:750px) {
+    .chart-wrapper {
+        max-height: 300px;
+    }
+}
+
+@media only screen and (max-width:650px) {
+    .chart-wrapper {
+        height: 250px;
+    }
+}
+
+@media only screen and (max-width:500px) {
+    .chart-wrapper{
+        height: 200px;
+    }
+}
+

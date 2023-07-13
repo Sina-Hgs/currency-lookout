@@ -1,7 +1,7 @@
 .timing{
     display: grid;
     grid-template-areas: "btn btn btn btn";
-    margin: 10px 25px;
+    margin: 0px 25px;
     box-shadow: 0px 3px 7px #000000bb;
 }
 
@@ -47,4 +47,10 @@
 .active-btn{
     @include timing();
     @include active();
+}
+
+@media screen and (max-width:650px) {
+    .timing-btn{
+        font-size: 14px;
+    }
 }

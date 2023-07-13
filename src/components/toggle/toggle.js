@@ -7,8 +7,8 @@ const Toggle = () => {
   return (
     <div className="toggle">
       <div className="toggle-btn" />
-      <FontAwesomeIcon icon={faSun} size="2xl" />
-      <FontAwesomeIcon icon={faMoon} size="2xl" />
+      <FontAwesomeIcon icon={faSun} size="2xl" className="toggle-icon" />
+      <FontAwesomeIcon icon={faMoon} size="2xl" className="toggle-icon" />
     </div>
   );
 };
