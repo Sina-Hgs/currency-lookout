@@ -14,3 +14,27 @@ header {
     font-size: 22px;
     color: #77d775;
 }
+
+@media only screen and (max-width:1150px) {
+    .header-title{
+        font-size: 38px;
+    }
+    
+    .sub-title{
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width:950px) {
+    .header-title {
+        font-size: 32px;
+    }
+    
+    .sub-title {
+        display: none;
+    }
+
+    .mobile-sub-title{
+        display: flex;
+    }
+}

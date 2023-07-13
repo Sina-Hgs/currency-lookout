@@ -1,11 +1,8 @@
 footer {
-    position: relative;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.863);
+    background: rgb(0, 0, 0);
     border-top: 2px solid #000000;
-   
+    padding-bottom: 5px;
+    margin-bottom: -5px;
 }
 
 .footer-title {
@@ -37,3 +34,12 @@ footer {
     }
 }
 
+@media screen and (max-width: 950px) {
+    .footer-wrapper{
+        flex-direction: column;
+    }
+    
+    .github-icon{
+        margin: 25px 0;
+    }
+}

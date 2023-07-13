@@ -5,12 +5,12 @@
   bottom: 0;
   top: 0;
   color: #ffff;
-
-  height: max-content;
+  height:fit-content;
   background: linear-gradient(180deg, #000000 10%, #014100 70%, #06b003 100%);
   font-family: lato, Arial;
   font-size: 16px;
 }
+
 
 .fade-in-span{
   animation: fade-in 0.9s 1 ease-in;
@@ -36,6 +36,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
+  line-height: 20px;
   text-shadow: 0px 3px 6px #000000;
   padding: 15px 25px;
   margin: 0;
