@@ -1,16 +1,21 @@
 import { useSelector } from "react-redux";
 
-import Spinner from "../spinner/spinner";
-
-import Chart, { scales } from "chart.js/auto";
+import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
+import Spinner from "../spinner/spinner";
+
 import "./dataChart.scss";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const DataChart = () => {
   const storeData = useSelector((state) => state.currency.data);
   const error = useSelector((state) => state.currency.error);
   const dataStatus = useSelector((state) => state.currency.status);
+
+  const [themeColor, setThemeColor] = useState("#04ff00");
+  const [highlightColor, setHighlightColor] = useState("rgba(4, 78, 2, 0.3)");
 
   // seperating the dates, currency rates, and target currency's name
   let dates = [];
@@ -29,18 +34,29 @@ const DataChart = () => {
   Chart.defaults.font.family = "lato";
   Chart.defaults.borderColor = "#001f00";
 
+  useEffect(() => {
+    const theme = document.querySelector(".App").classList;
+    setInterval(() => {
+      if (theme.contains("dark")) {
+        setThemeColor("#04ff00");
+        setHighlightColor("rgba(4, 78, 2, 0.3)");
+      } else {
+        setThemeColor("#ffff");
+        setHighlightColor("rgba(255, 255, 255, 0.2)");
+      }
+    }, 0.5);
+  }, []);
 
   const chartData = {
     labels: dates,
     datasets: [
       {
         label: curr,
-        backgroundColor: "#04ff00",
-        borderColor: "#04ff00",
-        color: "#04ff00",
+        backgroundColor: themeColor,
+        borderColor: themeColor,
         fill: {
           target: "origin",
-          above: "rgba(4, 78, 2, 0.3)",
+          above: highlightColor,
         },
 
         data: rates,

@@ -1,5 +1,27 @@
+#tip {
+    font-size: 14px;
+    color: var(--light-shadow-color);
+    background-color: var(--transparent-dark-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 20px;
+    text-shadow: 0px 3px 6px var(--secondary-text-color);
+    padding: 15px 25px;
+    margin: 0;
+    margin-top: 75px;
+    border-top: solid 1px var(--secondary-text-color);
+}
+
+#tip-title{
+    font-size: 21px;
+    color: var(--primary-text-color);
+}
+
+
 footer {
     background: rgb(0, 0, 0);
+    color: #ffff;
     border-top: 2px solid #000000;
     padding-bottom: 5px;
     margin-bottom: -5px;
@@ -7,6 +29,10 @@ footer {
 
 .footer-title {
     font-size: 20px;
+    font-weight: 700;
+    text-shadow: 0px 10px 6px rgba(0, 0, 0, 0.714);
+    text-transform: uppercase;
+    color: #ffff;
 }
 
 .footer-wrapper {
@@ -19,18 +45,16 @@ footer {
 
 .github-icon {
     font-size: 48px;
-    color: #ffffffcd;
-    margin-right: 50px;
+    color: var(--transparent-light-color);
     transition: 0.4s;
     
     &:hover {
-        color: #04ff00;
+        color: var(--active-color);
         transform: scale(1.2);
-    
     }
     
     &:focus {
-        color: #04ff00;
+        color: var(--active-color);
         transform: scale(1.2);
     }
 }

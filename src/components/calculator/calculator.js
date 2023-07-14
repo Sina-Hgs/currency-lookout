@@ -125,6 +125,7 @@ const Calculator = () => {
             type="number"
             onChange={(e) => handleInput(e)}
             placeholder="Enter a number here to convert"
+            className="calculator-input"
             id="base-value"
             disabled={dataStatus == "loading" ? true : false}
           />
@@ -158,6 +159,7 @@ const Calculator = () => {
           <input
             value={targetValue.toLocaleString("en-US")}
             readOnly
+            className="calculator-input"
             id="target-value"
           />
           <select

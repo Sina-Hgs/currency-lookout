@@ -1,7 +1,7 @@
 .error-message {
     font-size: 32px;
     text-transform: uppercase;
-    color: rgb(255, 255, 255);
+    color:var(--primary-text-color);
     position: absolute;
     left: 200px;
     top:350px;
@@ -16,9 +16,9 @@
 }
 
 canvas{
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 45%, rgba(0, 0, 0, 0.73) 90%);
+    background: var(--canvas-background);
     padding: 5px;
-    box-shadow: 0px 6px 7px #000000bb;
+    box-shadow: 2px 6px 7px var(--transparent-dark-color);
 }
 
 @media only screen and (min-width:1500px) {

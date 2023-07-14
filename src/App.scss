@@ -1,16 +1,60 @@
+//THEMES
+
+.dark{
+    --primary-text-color: #ffff;
+    --secondary-text-color: #000000;
+    --sub-title-color:#77d775;
+    
+    --active-color: rgb(4, 255, 0);
+    
+    --toggle-color: #0F690D;
+
+    --transparent-dark-color: rgba(0, 0, 0, 0.79);
+    --transparent-light-color: rgba(4, 255, 0, 0.78);
+
+    --light-shadow-color:#a4a4a4;
+
+    --app-background: linear-gradient(180deg, #000000 10%, #014100 70%, #06b003 100%);
+    
+    --canvas-background:linear-gradient(180deg, rgba(0, 0, 0, 0.2) 45%, rgba(0, 0, 0, 0.73) 90%);
+
+}
+
+.light {
+
+  --primary-text-color: #ffffff;
+  --secondary-text-color: rgb(15, 74, 20);
+  --sub-title-color: #ccffcd;
+
+  --active-color: rgb(215, 252, 214);
+
+  --toggle-color: #b2e6b0 ;
+
+  --transparent-dark-color: rgba(15, 74, 20, 0.876);
+  --transparent-light-color: rgba(215, 252, 214, 0.624);
+
+  --light-shadow-color: #d2cccc;
+
+  --app-background: linear-gradient(180deg,  #299126 10%, #47cb43 55%, #1b751b 75%);
+
+  --canvas-background: linear-gradient(180deg, rgba(42, 145, 38, 0.22) 15%,rgba(27, 117, 27, 0.797) 90%);
+
+}
+
+// classes
+
 .App {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
   top: 0;
-  color: #ffff;
+  color: var(--primary-text-color);
   height:fit-content;
-  background: linear-gradient(180deg, #000000 10%, #014100 70%, #06b003 100%);
+  background: var(--app-background);
   font-family: lato, Arial;
   font-size: 16px;
 }
-
 
 .fade-in-span{
   animation: fade-in 0.9s 1 ease-in;
@@ -29,35 +73,14 @@
   }
 }
 
-#tip {
-  font-size: 14px;
-  color: #cdcdcd;
-  background-color: rgba(9, 50, 11, 0.791);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  line-height: 20px;
-  text-shadow: 0px 3px 6px #000000;
-  padding: 15px 25px;
-  margin: 0;
-  margin-top: 75px;
-}
-
-/* this class is used in the header & footer components */
-.title {
-  font-weight: 700;
-  text-shadow: 0px 10px 4px #000000;
-  text-transform: uppercase;
-}
-
 a {
   color: inherit;
 
   &:hover{
-    color: #04ff00;
+    color: rgb(4, 255, 0);
   }
 
   &:focus{
-    color: #04ff00;
+    color: rgb(4, 255, 0);
   }
 }
