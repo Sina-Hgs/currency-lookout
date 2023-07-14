@@ -1,16 +1,31 @@
+// THEMES
+
+.dark{
+    --primary-text-color: #ffff;
+    --secondary-text-color: #000000;
+    --active-text-color: #04ff00;
+  
+    --app-background: linear-gradient(180deg, #000000 10%, #014100 70%, #06b003 100%);
+}
+
+.light {
+  --primary-text-color: red;
+
+  --app-background: linear-gradient(180deg, #77D775 0%, #C4FFC2 16.67%, #FFF 61.98%);
+}
+
 .App {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
   top: 0;
-  color: #ffff;
+  color: var(--primary-text-color);
   height:fit-content;
-  background: linear-gradient(180deg, #000000 10%, #014100 70%, #06b003 100%);
+  background: var(--app-background);
   font-family: lato, Arial;
   font-size: 16px;
 }
-
 
 .fade-in-span{
   animation: fade-in 0.9s 1 ease-in;
@@ -29,20 +44,6 @@
   }
 }
 
-#tip {
-  font-size: 14px;
-  color: #cdcdcd;
-  background-color: rgba(9, 50, 11, 0.791);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  line-height: 20px;
-  text-shadow: 0px 3px 6px #000000;
-  padding: 15px 25px;
-  margin: 0;
-  margin-top: 75px;
-}
-
 /* this class is used in the header & footer components */
 .title {
   font-weight: 700;
@@ -54,10 +55,10 @@ a {
   color: inherit;
 
   &:hover{
-    color: #04ff00;
+    color: var(--active-text-color);
   }
 
   &:focus{
-    color: #04ff00;
+    color: var(--active-text-color);
   }
 }

@@ -5,24 +5,42 @@ import "./footer.scss";
 
 const Footer = () => {
   return (
-    <footer>
-      <div className="footer-wrapper">
-        <div>
-          <h4 className="title footer-title">CURRENCY LOOKOUT</h4>
-          <p>
-            This project uses{" "}
-            <a href="https://exchangerate.host/" target="_blank">
-              Exchange API
-            </a>
-            , Chart.js, & react-chart.js
-          </p>
-          <p>Made by Sina Haghshenas.</p>
+    <>
+      <p id="tip">
+        <span
+          style={{
+            color: "#ffff",
+            fontSize: "20px",
+          }}
+        >
+          Tip: <br></br>
+        </span>
+        Use the calculator above to convert money, change or swap currencies, &
+        adjust the chart timing.
+      </p>
+      <footer>
+        <div className="footer-wrapper">
+          <div>
+            <h4 className="title footer-title">CURRENCY LOOKOUT</h4>
+            <p>
+              This project uses{" "}
+              <a href="https://exchangerate.host/" target="_blank">
+                Exchange API
+              </a>
+              , Chart.js, & react-chart.js
+            </p>
+            <p>Made by Sina Haghshenas.</p>
+          </div>
+          <a href="https://github.com/Sina-Hgs" target="_blank">
+            <FontAwesomeIcon
+              icon={faGithub}
+              size="2xl"
+              className="github-icon"
+            />
+          </a>
         </div>
-        <a href="https://github.com/Sina-Hgs" target="_blank">
-          <FontAwesomeIcon icon={faGithub} size="2xl" className="github-icon" />
-        </a>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 };
 

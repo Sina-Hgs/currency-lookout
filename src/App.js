@@ -12,24 +12,12 @@ import "./App.scss";
 const App = () => {
   return (
     <Provider store={store}>
-      <div className="App">
+      <div className="App dark">
         <span className="fade-in-span">
           <Header />
           <DataChart />
           <Timing />
           <Calculator />
-          <p id="tip">
-            <span
-              style={{
-                color: "#ffff",
-                fontSize: "20px",
-              }}
-            >
-              Tip: <br></br>
-            </span>
-            Use the calculator above to convert money, change or swap
-            currencies, & adjust the chart timing.
-          </p>
           <Footer />
         </span>
       </div>

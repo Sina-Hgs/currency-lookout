@@ -12,6 +12,7 @@
 }
 
 .toggle-btn {
+    appearance: none;
     position: absolute;
     border-radius: 100px;
     width: 40px;
@@ -28,11 +29,19 @@
     &:focus {
         background-color: #04ff00;
     }
+
+    &:checked{
+        margin-left: 35px;
+    }
+}
+
+.toggle-icon {
+    font-size: 28px;
 }
 
 @media only screen and (max-width:1150px) {
     .toggle{
-        width: 55px;
+        width: 60px;
         height: 40px;
     }
 
@@ -44,5 +53,6 @@
     .toggle-icon{
         font-size: 24px;
     }
-
 }
+
+
