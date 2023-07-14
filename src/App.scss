@@ -5,7 +5,7 @@
     --secondary-text-color: #000000;
     --sub-title-color:#77d775;
     
-    --active-color: #04ff00;
+    --active-color: rgb(4, 255, 0);
     
     --toggle-color: #0F690D;
 
@@ -14,14 +14,31 @@
 
     --light-shadow-color:#a4a4a4;
 
+    --app-background: linear-gradient(180deg, #000000 10%, #014100 70%, #06b003 100%);
+    
     --canvas-background:linear-gradient(180deg, rgba(0, 0, 0, 0.2) 45%, rgba(0, 0, 0, 0.73) 90%);
 
-    --app-background: linear-gradient(180deg, #000000 10%, #014100 70%, #06b003 100%);
 }
 
 .light {
 
-  --app-background: linear-gradient(180deg,  #48a145 0%, #77D775 26.67%, #cafac7 61.98%);
+  --primary-text-color: #ffffff;
+  --secondary-text-color: rgb(15, 74, 20);
+  --sub-title-color: #ccffcd;
+
+  --active-color: rgb(215, 252, 214);
+
+  --toggle-color: #b2e6b0 ;
+
+  --transparent-dark-color: rgba(15, 74, 20, 0.876);
+  --transparent-light-color: rgba(215, 252, 214, 0.624);
+
+  --light-shadow-color: #d2cccc;
+
+  --app-background: linear-gradient(180deg,  #299126 10%, #47cb43 55%, #1b751b 75%);
+
+  --canvas-background: linear-gradient(180deg, rgba(45, 162, 68, 0.309) 35%,rgba(0, 88, 16, 0.603) 90%);
+
 }
 
 // classes
@@ -56,22 +73,14 @@
   }
 }
 
-/* this class is used in the header & footer components */
-.title {
-  font-weight: 700;
-  text-shadow: 0px 10px 4px var(--transparent-dark-color);
-  text-transform: uppercase;
-  color: var(--primary-text-color);
-}
-
 a {
   color: inherit;
 
   &:hover{
-    color: var(--active-color);
+    color: rgb(4, 255, 0);
   }
 
   &:focus{
-    color: var(--active-color);
+    color: rgb(4, 255, 0);
   }
 }

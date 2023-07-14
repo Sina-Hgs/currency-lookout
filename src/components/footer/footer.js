@@ -16,7 +16,7 @@ const Footer = () => {
       <footer>
         <div className="footer-wrapper">
           <div>
-            <h4 className="title footer-title">CURRENCY LOOKOUT</h4>
+            <h4 className="footer-title">Currency Lookout</h4>
             <p>
               This project uses{" "}
               <a href="https://exchangerate.host/" target="_blank">

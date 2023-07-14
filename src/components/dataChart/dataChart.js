@@ -6,11 +6,15 @@ import { Line } from "react-chartjs-2";
 import Spinner from "../spinner/spinner";
 
 import "./dataChart.scss";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const DataChart = () => {
   const storeData = useSelector((state) => state.currency.data);
   const error = useSelector((state) => state.currency.error);
   const dataStatus = useSelector((state) => state.currency.status);
+
+  const [themeColor, setThemeColor] = useState("#04ff00");
 
   // seperating the dates, currency rates, and target currency's name
   let dates = [];
@@ -29,14 +33,24 @@ const DataChart = () => {
   Chart.defaults.font.family = "lato";
   Chart.defaults.borderColor = "#001f00";
 
+  useEffect(() => {
+    const theme = document.querySelector(".App").classList;
+    setInterval(() => {
+      if (theme.contains("dark")) {
+        setThemeColor("#04ff00");
+      } else {
+        setThemeColor("rgb(215, 252, 214)");
+      }
+    }, 0.5);
+  }, []);
+
   const chartData = {
     labels: dates,
     datasets: [
       {
         label: curr,
-        backgroundColor: "#04ff00",
-        borderColor: "#04ff00",
-        color: "#04ff00",
+        backgroundColor: themeColor,
+        borderColor: themeColor,
         fill: {
           target: "origin",
           above: "rgba(4, 78, 2, 0.3)",

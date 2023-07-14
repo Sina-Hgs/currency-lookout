@@ -94,8 +94,9 @@ label{
     text-align: center;
     font-weight: 600;
     font-size: 18px;
+    color: var(--sub-title-color);
     letter-spacing: 5px;
-    text-shadow: 0px 7px 4px var(--secondary-text-color);
+    text-shadow: 0px 7px 8px var(--secondary-text-color);
     margin: 25px;
 
     &:hover {
@@ -133,6 +134,11 @@ label{
 
     &:hover{
         background-color: var(--active-color);
+        text-shadow: 5px 5px 12px var(--transparent-dark-color);
+    }
+
+    &:focus {
+        text-shadow: 5px 5px 12px var(--transparent-dark-color);
     }
 }
 
@@ -147,10 +153,11 @@ select{
 }
 
 option{
-    color: var(--secondary-text-color);
+    background-color: var(--secondary-text-color);
+    color: var(--primary-text-color);
     font-weight: normal;
     text-shadow: none;
-    background-color: var(--sub-title-color);
+    
 }
 
 

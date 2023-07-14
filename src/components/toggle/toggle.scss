@@ -41,13 +41,17 @@
 
 @media only screen and (max-width:1150px) {
     .toggle{
-        width: 60px;
-        height: 40px;
+        width: 45px;
+        height: 35px;
     }
 
     .toggle-btn{
-        width: 30px;
-        height: 30px;
+        width: 29px;
+        height: 29px;
+
+        &:checked {
+            margin-left: 20px;
+        }
     }
 
     .toggle-icon{
