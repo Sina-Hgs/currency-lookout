@@ -1,9 +1,9 @@
 .toggle {
-    background-color: rgba(0, 0, 0, 0.443);
+    background-color: var(--transparent-dark-color);
     width: 70px;
     height: 50px;
     padding: 0 10px;
-    border: 3px solid #0F690D;
+    border: 3px solid var(--toggle-color);
     border-radius: 75px;
     display: flex;
     flex-direction: flow;
@@ -17,17 +17,17 @@
     border-radius: 100px;
     width: 40px;
     height: 40px;
-    background: #0F690D;
+    background: var(--toggle-color);;
     margin: 0 -5px;
     transition: 0.5s;
     cursor: pointer;
 
     &:hover {
-        background-color: #04ff00;
+        background-color: var(--active-color);
     }
     
     &:focus {
-        background-color: #04ff00;
+        background-color: var(--active-color);
     }
 
     &:checked{

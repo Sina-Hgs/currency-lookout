@@ -2,17 +2,17 @@
     display: grid;
     grid-template-areas: "btn btn btn btn";
     margin: 0px 25px;
-    box-shadow: 0px 3px 7px #000000bb;
+    box-shadow: 0px 3px 7px var(--transparent-dark-color);
 }
 
 @mixin timing{
     text-transform: uppercase;
     padding: 10px 0;
-    background: rgba(0, 0, 0, 0.79);
+    background: var(--transparent-dark-color);
     border: none;
-    outline-color: #ffff;
-    border-right: solid 1px #ffff;
-    color: #ffffff;
+    outline-color: var(--primary-text-color);
+    border-right: solid 1px var(--primary-text-color);
+    color: var(--primary-text-color);
     font-family: inherit;
     font-size: 16px;
     text-align: center;
@@ -26,9 +26,9 @@
 }
 
 @mixin active{
-    background-color: #04ff00;
-    color: rgb(0, 0, 0);
-    text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.412);
+    background-color: var(--active-color);
+    color: var(--secondary-text-color);
+    text-shadow: 5px 5px 7px var(--transparent-dark-color);
     transition: 0.5s;
 }
 
@@ -50,7 +50,6 @@
 }
 
 @media screen and (max-width:650px) {
-    
     .timing-btn{
         font-size: 12px;
     }

@@ -10,14 +10,14 @@
 
 #swap-btn{
     font-size: 24px;
-    color: #000000;
+    color: var(--secondary-text-color);
     padding: 2px 5px;
-    outline-color: #ffff;
+    outline-color: var(--primary-text-color);
     cursor: pointer;
     transition: 0.4s;
 
     &:hover{
-        color: #04ff00;
+        color: var(--active-color);
         transform: scale(1.2);
         
         :nth-child(2){
@@ -26,7 +26,7 @@
     }
 
     & :first-child:focus{
-        color: #04ff00;
+        color: var(--active-color);
         transform: scale(1.2);
     }
 }
@@ -36,8 +36,8 @@
     position: absolute;
     margin-left:10px;
     margin-top: -30px;
-    background-color: rgba(0, 0, 0, 0.823);
-    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.412);
+    background-color: var(--transparent-dark-color);
+    box-shadow: 5px 5px 4px var(--transparent-dark-color);
     color: #ffffff;
     padding: 15px 15px;
     border-radius: 5px;
@@ -60,21 +60,21 @@
 }
 
 @mixin active {
-    background-color: #04ff00;
-    color: rgb(0, 0, 0);
-    text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.412);
+    background-color: var(--active-color);
+    color: var(--secondary-text-color);
+    text-shadow: 5px 5px 4px var(--transparent-dark-color);
     transition: 0.5s;
 }
 
 @mixin calculator{
-    background: rgba(0, 0, 0, 0.79);
+    background: var(--transparent-dark-color);
     width: 310px;
     height: 50px;
     border: none;
-    box-shadow: 0px 3px 7px #000000bb;
-    outline-color: #ffff;
+    box-shadow: 0px 3px 7px var(--transparent-dark-color);
+    outline-color: var(--primary-text-color);
     padding: 0;
-    color: #ffffff;
+    color: var(--primary-text-color);
     text-align: center;
     font-family: lato, Arial;
     font-size: 16px;
@@ -95,7 +95,7 @@ label{
     font-weight: 600;
     font-size: 18px;
     letter-spacing: 5px;
-    text-shadow: 0px 7px 4px #000000;
+    text-shadow: 0px 7px 4px var(--secondary-text-color);
     margin: 25px;
 
     &:hover {
@@ -106,21 +106,21 @@ label{
 
 .calculator-input{
     @include calculator();
-    border-right:solid 1px #ffffff ;
+    border-right:solid 1px var(--primary-text-color); ;
     grid-area: input;
 }
 
 #base-value{
-    background-color: #ffff;
-    color: #000000;
+    background-color: var(--primary-text-color);;
+    color: var(--secondary-text-color);
     font-weight: 600;
     text-decoration: underline;
 
     &:hover{
-        text-shadow: 5px 5px 4px #a4a4a4;
+        text-shadow: 5px 5px 4px var(--light-shadow-color);
     }
     &:focus {
-        text-shadow: 5px 5px 4px #a4a4a4;
+        text-shadow: 5px 5px 4px var(--light-shadow-color);
     }
 }
 
@@ -128,17 +128,17 @@ label{
 #target-value{
     font-weight: 600;
     text-decoration: underline;
-    background-color: rgba(4, 255, 0, 0.78);
-    color: #000000;
+    background-color: var(--transparent-light-color);
+    color: var(--secondary-text-color);
 
     &:hover{
-        background-color: rgba(4, 255, 0, 1);
+        background-color: var(--active-color);
     }
 }
 
 select{
     @include calculator();
-    color: #04ff00;
+    color: var(--active-color);
     font-weight: 600;
     grid-area: select;
     text-align: left;
@@ -147,16 +147,16 @@ select{
 }
 
 option{
-    color: #000000;
+    color: var(--secondary-text-color);
     font-weight: normal;
     text-shadow: none;
-    background-color: #77d775;
+    background-color: var(--sub-title-color);
 }
 
 
 
 @media only screen and (max-width:1350px) {
-   
+
     .calculator{
         flex-direction: column;
         align-items: center;
@@ -201,7 +201,7 @@ option{
 
     .calculator-input{
         border: none;
-        border-bottom: solid 1px #ffffff;
+        border-bottom: solid 1px var(--primary-text-color);
     }
 }
 

@@ -1,18 +1,30 @@
-// THEMES
+//THEMES
 
 .dark{
     --primary-text-color: #ffff;
     --secondary-text-color: #000000;
-    --active-text-color: #04ff00;
-  
+    --sub-title-color:#77d775;
+    
+    --active-color: #04ff00;
+    
+    --toggle-color: #0F690D;
+
+    --transparent-dark-color: rgba(0, 0, 0, 0.79);
+    --transparent-light-color: rgba(4, 255, 0, 0.78);
+
+    --light-shadow-color:#a4a4a4;
+
+    --canvas-background:linear-gradient(180deg, rgba(0, 0, 0, 0.2) 45%, rgba(0, 0, 0, 0.73) 90%);
+
     --app-background: linear-gradient(180deg, #000000 10%, #014100 70%, #06b003 100%);
 }
 
 .light {
-  --primary-text-color: red;
 
-  --app-background: linear-gradient(180deg, #77D775 0%, #C4FFC2 16.67%, #FFF 61.98%);
+  --app-background: linear-gradient(180deg,  #48a145 0%, #77D775 26.67%, #cafac7 61.98%);
 }
+
+// classes
 
 .App {
   position: absolute;
@@ -47,18 +59,19 @@
 /* this class is used in the header & footer components */
 .title {
   font-weight: 700;
-  text-shadow: 0px 10px 4px #000000;
+  text-shadow: 0px 10px 4px var(--transparent-dark-color);
   text-transform: uppercase;
+  color: var(--primary-text-color);
 }
 
 a {
   color: inherit;
 
   &:hover{
-    color: var(--active-text-color);
+    color: var(--active-color);
   }
 
   &:focus{
-    color: var(--active-text-color);
+    color: var(--active-color);
   }
 }

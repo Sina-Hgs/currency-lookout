@@ -7,12 +7,7 @@ const Footer = () => {
   return (
     <>
       <p id="tip">
-        <span
-          style={{
-            color: "#ffff",
-            fontSize: "20px",
-          }}
-        >
+        <span id="tip-title">
           Tip: <br></br>
         </span>
         Use the calculator above to convert money, change or swap currencies, &

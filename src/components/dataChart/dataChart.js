@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 
-import Spinner from "../spinner/spinner";
-
-import Chart, { scales } from "chart.js/auto";
+import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
+
+import Spinner from "../spinner/spinner";
 
 import "./dataChart.scss";
 
@@ -28,7 +28,6 @@ const DataChart = () => {
   Chart.defaults.color = "#ffff";
   Chart.defaults.font.family = "lato";
   Chart.defaults.borderColor = "#001f00";
-
 
   const chartData = {
     labels: dates,
