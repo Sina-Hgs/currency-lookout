@@ -1,6 +1,37 @@
-# Getting Started with Create React App
+# CURRENCY LOOKOUT REACT APP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A fully functional & responsive web-app for currency rates charts & currency convertion calculation.
+
+**Made with:**
+
+React, Redux, Redux-thunk, Jest, SCSS, Chart.js, react-chart-js, Data fetching & API calling, & Figma
+
+*Made in 2023*
+
+## ABOUT
+The project fetches the latest currency rates data from [this API](https://exchangerate.host/#/) alongside the API's available currencies to showcase them in a chart and use the data for a currency conversion calculator. 
+
+The fetching is done using ***Async/Await*** and ***Redux-thunk***, and is accessed by different react component using the redux store. 
+The request for data fetching adjusts itself with the user interaction; for example the time period of the chart or the *base* & *target* currecnies can change using different options on the page which dispatch the new variables to the store. Currently there is a total of 171 currencies available in the time periods of *week*, *month*, *6 months*, & *year*.
+
+
+Considering that the project is meant to showcase my skills and programming choices, I've decided to implement many of the latest technologies currently popular in the tech industry.
+
+The UI of this app was developed using ***Figma***, the react app was created using ***yarn***, & the state managment used in the app is ***redux-toolkit*** which also featured *redux-thunk* functions. The testing can be done with ***Jest***, but the overall debugging of the app is not limited to this tool; different methods of catching errors and/or console logging them can be seen in different parts of the app, especially those developed for data fetching.
+
+The chart, which uses the fetched data, is made with ***Chart.js*** & ***react-chart-js*** packages, and was styled responsively according to different light/dark themes of the app.
+
+The style of the app is created with ***SCSS*** and uses *css variables* which change the app colors according to the light/dark theme selected by the user. The theme can be changed using a toggle button on the page. This project also uses ***Font Awesome*** react icons.
+
+Most files have short yet in-depth *comments* to explain the used variables or coding choices.
+
+I've tried the apply the *single responsibility principle* to the react components as much as possible without breaking the component tree into excessively small pieces; therefor practicality came before the principle in some minor cases that were doable in small self-contained functions inside a react component. Some actions like calculating dates for using inside the request URL or breaking down the fetched currencies list object into usable arrays were seperated into different files to keep the react component loyal to the *principle*.
+
+To see the deployed project online please visit:
+
+*LINK TO BE ADDED*
+
+To use the project on your local device, download the project & run a script from below.
 
 ## Available Scripts
 
@@ -16,55 +47,14 @@ You may also see any lint errors in the console.
 
 ### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode.
+
 
 ### `yarn build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
 ### `yarn eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

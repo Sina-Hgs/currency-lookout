@@ -24,6 +24,16 @@ const Footer = () => {
               </a>
               , Chart.js, & react-chart.js
             </p>
+            <p>
+              To know more about this project, please read{" "}
+              <a
+                href="https://github.com/Sina-Hgs/currency-lookout#readme"
+                target="_blank"
+              >
+                this section
+              </a>{" "}
+              of it's GitHub-repository.
+            </p>
             <p>Made by Sina Haghshenas.</p>
           </div>
           <a href="https://github.com/Sina-Hgs" target="_blank">
