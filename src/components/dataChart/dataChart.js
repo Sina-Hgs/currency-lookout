@@ -15,6 +15,7 @@ const DataChart = () => {
   const dataStatus = useSelector((state) => state.currency.status);
 
   const [themeColor, setThemeColor] = useState("#04ff00");
+  const [highlightColor, setHighlightColor] = useState("rgba(4, 78, 2, 0.3)");
 
   // seperating the dates, currency rates, and target currency's name
   let dates = [];
@@ -38,8 +39,10 @@ const DataChart = () => {
     setInterval(() => {
       if (theme.contains("dark")) {
         setThemeColor("#04ff00");
+        setHighlightColor("rgba(4, 78, 2, 0.3)");
       } else {
-        setThemeColor("rgb(215, 252, 214)");
+        setThemeColor("#ffff");
+        setHighlightColor("rgba(255, 255, 255, 0.2)");
       }
     }, 0.5);
   }, []);
@@ -53,7 +56,7 @@ const DataChart = () => {
         borderColor: themeColor,
         fill: {
           target: "origin",
-          above: "rgba(4, 78, 2, 0.3)",
+          above: highlightColor,
         },
 
         data: rates,
