@@ -7,7 +7,7 @@ https://sina-hgs.github.io/currency-lookout/
 
 **Made with:**
 
-React, Redux, Redux-thunk, Jest, SCSS, Chart.js, react-chart-js, Data fetching & API calling, & Figma
+React, Redux, Redux-thunk, Jest, SCSS, Chart.js, react-chart-js, Data fetching & API calling, PWA, & Figma
 
 *Made in 2023*
 
@@ -25,6 +25,8 @@ The UI of this app was developed using ***Figma***, the react app was created us
 The chart, which uses the fetched data, is made with ***Chart.js*** & ***react-chart-js*** packages, and was styled responsively according to different light/dark themes of the app.
 
 The style of the app is created with ***SCSS*** and uses *css variables* which change the app colors according to the light/dark theme selected by the user. The theme can be changed using a toggle button on the page. This project also uses ***Font Awesome*** react icons.
+
+The app is **_PWA_** with custom made logo which was made by _AI_.
 
 Most files have short yet in-depth *comments* to explain the used variables or coding choices.
 
