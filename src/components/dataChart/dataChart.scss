@@ -1,10 +1,10 @@
 .error-message {
     font-size: 32px;
     text-transform: uppercase;
+    text-decoration: underline;
     color:var(--primary-text-color);
-    position: absolute;
-    left: 200px;
-    top:350px;
+    display: flex;
+    justify-content: center;
 }
 
 .chart-wrapper{

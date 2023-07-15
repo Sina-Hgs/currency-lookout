@@ -32,7 +32,7 @@ const DataChart = () => {
 
   Chart.defaults.color = "#ffff";
   Chart.defaults.font.family = "lato";
-  Chart.defaults.borderColor = "#001f00";
+  Chart.defaults.borderColor = "rgba(15, 74, 20, 0.5)";
 
   useEffect(() => {
     const theme = document.querySelector(".App").classList;
