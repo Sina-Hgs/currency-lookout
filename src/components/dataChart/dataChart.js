@@ -32,7 +32,7 @@ const DataChart = () => {
 
   Chart.defaults.color = "#ffff";
   Chart.defaults.font.family = "lato";
-  Chart.defaults.borderColor = "#001f00";
+  Chart.defaults.borderColor = "rgba(15, 105, 13, 0.563)";
   Chart.defaults.elements.point.radius = "1";
 
   useEffect(() => {
