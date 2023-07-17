@@ -33,6 +33,7 @@ const DataChart = () => {
   Chart.defaults.color = "#ffff";
   Chart.defaults.font.family = "lato";
   Chart.defaults.borderColor = "#001f00";
+  Chart.defaults.elements.point.radius = "1";
 
   useEffect(() => {
     const theme = document.querySelector(".App").classList;
@@ -52,7 +53,7 @@ const DataChart = () => {
     datasets: [
       {
         label: curr,
-        backgroundColor: themeColor,
+        backgroundColor: "rgba(78, 255, 75, 0.6)",
         borderColor: themeColor,
         fill: {
           target: "origin",

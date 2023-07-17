@@ -1,6 +1,7 @@
 {
   "name": "currency-lookout",
   "version": "0.1.0",
+  "homepage": "https://sina-hgs.github.io/currency-lookout/",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
