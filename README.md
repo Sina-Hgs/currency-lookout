@@ -2,9 +2,12 @@
 
 A fully functional & responsive web-app for currency rates charts & currency convertion calculation.
 
+See the project at:
+https://sina-hgs.github.io/currency-lookout/
+
 **Made with:**
 
-React, Redux, Redux-thunk, Jest, SCSS, Chart.js, react-chart-js, Data fetching & API calling, & Figma
+React, Redux, Redux-thunk, Jest, SCSS, Chart.js, react-chart-js, Data fetching & API calling, PWA, & Figma
 
 *Made in 2023*
 
@@ -23,13 +26,15 @@ The chart, which uses the fetched data, is made with ***Chart.js*** & ***react-c
 
 The style of the app is created with ***SCSS*** and uses *css variables* which change the app colors according to the light/dark theme selected by the user. The theme can be changed using a toggle button on the page. This project also uses ***Font Awesome*** react icons.
 
+The app is **_PWA_** with custom made logo which was made by _AI_.
+
 Most files have short yet in-depth *comments* to explain the used variables or coding choices.
 
 I've tried the apply the *single responsibility principle* to the react components as much as possible without breaking the component tree into excessively small pieces; therefor practicality came before the principle in some minor cases that were doable in small self-contained functions inside a react component. Some actions like calculating dates for using inside the request URL or breaking down the fetched currencies list object into usable arrays were seperated into different files to keep the react component loyal to the *principle*.
 
 To see the deployed project online please visit:
 
-*LINK TO BE ADDED*
+https://sina-hgs.github.io/currency-lookout/
 
 To use the project on your local device, download the project & run a script from below.
 
