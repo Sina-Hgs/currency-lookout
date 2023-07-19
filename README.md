@@ -15,10 +15,10 @@ React, Redux, Redux-thunk, Jest, SCSS, Chart.js, react-chart-js, Data fetching &
 The project fetches the latest currency rates data from [this API](https://exchangerate.host/#/) alongside the API's available currencies to showcase them in a chart and use the data for a currency conversion calculator. 
 
 The fetching is done using ***Async/Await*** and ***Redux-thunk***, and is accessed by different react component using the redux store. 
-The request for data fetching adjusts itself with the user interaction; for example the time period of the chart or the *base* & *target* currecnies can change using different options on the page which dispatch the new variables to the store. Currently there is a total of 171 currencies available in the time periods of *week*, *month*, *6 months*, & *year*.
+The request for data fetching adjusts itself with the user interaction; for example the time period of the chart or the *base* & *target* currecnies can be changed using different options on the page which dispatch the new variables to the store. Currently there is a total of 171 currencies available in the time periods of *week*, *month*, *6 months*, & *year*.
 
 
-Considering that the project is meant to showcase my skills and programming choices, I've decided to implement many of the latest technologies currently popular in the tech industry.
+Considering the fact that the project is meant to showcase my skills and programming choices, I've decided to implement many of the latest technologies currently popular in the tech industry.
 
 The UI of this app was developed using ***Figma***, the react app was created using ***yarn***, & the state managment used in the app is ***redux-toolkit*** which also featured *redux-thunk* functions. The testing can be done with ***Jest***, but the overall debugging of the app is not limited to this tool; different methods of catching errors and/or console logging them can be seen in different parts of the app, especially those developed for data fetching.
 
@@ -30,7 +30,7 @@ The app is **_PWA_** with custom made logo which was made by _AI_.
 
 Most files have short yet in-depth *comments* to explain the used variables or coding choices.
 
-I've tried the apply the *single responsibility principle* to the react components as much as possible without breaking the component tree into excessively small pieces; therefor practicality came before the principle in some minor cases that were doable in small self-contained functions inside a react component. Some actions like calculating dates for using inside the request URL or breaking down the fetched currencies list object into usable arrays were seperated into different files to keep the react component loyal to the *principle*.
+I've tried the apply the *single responsibility principle* to the react components as much as possible without breaking the component tree into excessively small pieces; therefor practicality came before the principle in some minor cases that were doable in small self-contained functions inside a react component. Some actions like calculating dates for using inside the request URL or breaking down the fetched currencies list object into usable arrays were seperated into different files to keep their react component loyal to the *principle*.
 
 To see the deployed project online please visit:
 
