@@ -34,6 +34,7 @@ const DataChart = () => {
   Chart.defaults.font.family = "lato";
   Chart.defaults.borderColor = "rgba(15, 105, 13, 0.563)";
   Chart.defaults.elements.point.radius = "1";
+  Chart.defaults.font.size = "10";
 
   useEffect(() => {
     const theme = document.querySelector(".App").classList;
