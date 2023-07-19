@@ -35,6 +35,9 @@ const DataChart = () => {
   Chart.defaults.borderColor = "rgba(15, 105, 13, 0.563)";
   Chart.defaults.elements.point.radius = "1";
   Chart.defaults.font.size = "10";
+  Chart.defaults.plugins.tooltip.bodyAlign = "center";
+  Chart.defaults.plugins.tooltip.boxWidth = "0";
+  Chart.defaults.plugins.tooltip.padding = "10";
 
   useEffect(() => {
     const theme = document.querySelector(".App").classList;
