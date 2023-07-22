@@ -1,6 +1,6 @@
 # CURRENCY LOOKOUT REACT APP
 
-A fully functional & responsive web-app for currency rates charts & currency convertion calculation.
+A fully functional & responsive progressive-web-app for currency rates charts & currency convertion calculation.
 
 See the project at:
 https://sina-hgs.github.io/currency-lookout/
