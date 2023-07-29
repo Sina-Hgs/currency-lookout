@@ -5,6 +5,15 @@ A fully functional & responsive progressive-web-app for currency rates charts & 
 See the project at:
 https://sina-hgs.github.io/currency-lookout/
 
+
+
+![Screenshot (399)](https://github.com/Sina-Hgs/currency-lookout/assets/103804601/0cab8bb2-ac20-40eb-ae09-12a0bd83da69)
+
+
+
+
+
+
 **Made with:**
 
 React, Redux, Redux-thunk, Jest, SCSS, Chart.js, react-chart-js, Data fetching & API calling, PWA, & Figma
