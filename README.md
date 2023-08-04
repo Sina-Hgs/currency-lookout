@@ -16,7 +16,7 @@ https://sina-hgs.github.io/currency-lookout/
 
 **Made with:**
 
-React, Redux, Redux-thunk, Jest, SCSS, Chart.js, react-chart-js, Data fetching & API calling, PWA, & Figma
+React, Redux, Redux-thunk, Jest, SCSS, Chart.js, react-chart-js, Data fetching (Async/Await) & API calling, PWA, & Figma
 
 *Made in 2023*
 
