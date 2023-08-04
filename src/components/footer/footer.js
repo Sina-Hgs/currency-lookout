@@ -32,7 +32,7 @@ const Footer = () => {
               >
                 this section
               </a>{" "}
-              of it's GitHub-repository.
+              of its GitHub-repository.
             </p>
             <p>Made by Sina Haghshenas.</p>
           </div>
