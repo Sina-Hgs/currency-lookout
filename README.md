@@ -1,5 +1,7 @@
 # CURRENCY LOOKOUT REACT APP
 
+_THE APP ISN'T CURRENTLY WORKING PROPERLY BECAUSE THE API HAS BECOME MONETIZED, I'M WORKING ON A NEW VERSION RIGHT NOW WITH A NEW API_
+
 A fully functional & responsive progressive-web-app for currency rates charts & currency conversion calculation.
 
 See the project at:
