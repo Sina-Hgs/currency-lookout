@@ -60,6 +60,52 @@
   animation: fade-in 0.9s 1 ease-in;
 }
 
+.notice{
+  background-color: var(--transparent-dark-color);
+  position: fixed;
+  margin: auto;
+  left: 70px;
+  right: 70px;
+  padding: 35px;
+  border: solid 1px var(--active-color);
+  font-size: 24px;
+  z-index: 999;
+  
+  h3{
+    text-align: center;
+    color: var(--active-color);
+  }
+
+  button{
+    color: var(--active-color);
+    all: unset;
+    background: none;
+    color: var(--active-color);
+    font-size: 24px;
+    font-weight: 900;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    cursor: pointer;
+
+    &:hover{
+      transform: scale(1.5);
+      transition:0.3s;
+    }
+  }
+}
+
+@media only screen and (max-width:750px) {
+
+  .notice{
+    // top: 20px;
+    left: 15px;
+    right:15px;
+    padding: 15px;
+    font-size: 18px;
+  }
+}
+
 @keyframes fade-in {
   0%{
     opacity: 0%;
