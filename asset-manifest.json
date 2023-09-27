@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/currency-lookout/static/css/main.1410acb2.css",
-    "main.js": "/currency-lookout/static/js/main.766a4a93.js",
+    "main.js": "/currency-lookout/static/js/main.84d7d7e0.js",
     "static/media/Lato-Regular.ttf": "/currency-lookout/static/media/Lato-Regular.633ffe4a4b5b7277cc35.ttf",
     "index.html": "/currency-lookout/index.html",
     "main.1410acb2.css.map": "/currency-lookout/static/css/main.1410acb2.css.map",
-    "main.766a4a93.js.map": "/currency-lookout/static/js/main.766a4a93.js.map"
+    "main.84d7d7e0.js.map": "/currency-lookout/static/js/main.84d7d7e0.js.map"
   },
   "entrypoints": [
     "static/css/main.1410acb2.css",
-    "static/js/main.766a4a93.js"
+    "static/js/main.84d7d7e0.js"
   ]
 }
