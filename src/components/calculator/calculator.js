@@ -7,7 +7,7 @@ import {
   statusChanger,
 } from "../../store/currencySlice";
 
-import { currencyArr, dropDownArr, err } from "./getCurrenciesList";
+import { currencyArr, dropDownArr, err } from "../../lib/getCurrenciesList";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightArrowLeft } from "@fortawesome/free-solid-svg-icons";

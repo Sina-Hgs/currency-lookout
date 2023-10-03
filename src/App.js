@@ -15,7 +15,7 @@ const App = () => {
       <div className="App dark">
         <span className="fade-in-span">
           <Header />
-          <div className="notice">
+          {/* <div className="notice">
             <button
               onClick={() =>
                 (document.querySelector(".notice").style.display = "none")
@@ -36,7 +36,7 @@ const App = () => {
             enjoy the app.
             <br />
             Thankyou!
-          </div>
+          </div> */}
           <DataChart />
           <Timing />
           <Calculator />

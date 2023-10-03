@@ -18,11 +18,7 @@ const Footer = () => {
           <div>
             <h4 className="footer-title">Currency Lookout</h4>
             <p>
-              This project uses{" "}
-              <a href="https://exchangerate.host/" target="_blank">
-                Exchange API
-              </a>
-              , Chart.js, & react-chart.js
+              Powered by <a href="https://www.amdoren.com">Amdoren</a>
             </p>
             <p>
               To know more about this project, please read{" "}

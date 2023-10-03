@@ -7,7 +7,7 @@ import {
   statusChanger,
 } from "../../store/currencySlice";
 
-import { today, week, oneMonth, sixMonths, year } from "./calculateDate";
+import { today, week, oneMonth, sixMonths, year } from "../../lib/calculateDate";
 
 import "./timing.scss";
 

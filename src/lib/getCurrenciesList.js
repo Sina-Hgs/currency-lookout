@@ -1,4 +1,6 @@
-const requestURL = "https://api.exchangerate.host/symbols";
+const APIKEY = process.env.REACT_APP_API_KEY;
+// console.log("😋😋😋", APIKEY);
+const requestURL = `https://www.amdoren.com/api/currency.php?api_key=${APIKEY}`;
 let currencyArr = [];
 let dropDownArr = [];
 
