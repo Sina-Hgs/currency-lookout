@@ -1,5 +1,5 @@
 const APIKEY = process.env.REACT_APP_API_KEY;
-// console.log("😋😋😋", APIKEY);
+
 const requestURL = `https://api.currencybeacon.com/v1/currencies?api_key=${APIKEY}`;
 let currencyArr = [];
 let dropDownArr = [];
@@ -37,7 +37,7 @@ const getCurrenciesList = async () => {
     //   // even though in UFT-16, uppercase and lowercase letters are not evaluated as equal
     //   // there was no reason for me to change all the elements to uppercase before sorting
     //   // because the strings are writting in capitalize (each word) format that works ok with UFT-16
-    //   dropDownArr.sort();
+    //
     // }
 
     for (let i = 0; i < fetchedCurrenciesArr.length; i++) {
@@ -46,6 +46,7 @@ const getCurrenciesList = async () => {
       dropDownArr.push(fetchedCurrenciesArr[i][0].name);
     }
     dropDownArr = [...new Set(dropDownArr)];
+    dropDownArr.sort();
     console.log(currencyArr, "currency array");
     console.log(dropDownArr, "dropdown");
     // returning this for testing with Jest
