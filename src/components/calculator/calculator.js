@@ -7,7 +7,13 @@ import {
   statusChanger,
 } from "../../store/currencySlice";
 
-import { currencyArr, dropDownArr, err } from "../../lib/getCurrenciesList";
+import {
+  getCurrenciesList,
+  currencyArr,
+  dropDownArr,
+  fetchedCurrenciesArr,
+  err,
+} from "../../lib/getCurrenciesList";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -34,9 +40,9 @@ const Calculator = () => {
   // and need to get their full names for setting them as the selected options in JSX
   let fullName;
   const findCurrencyName = (currencyCode) => {
-    for (let i = 0; i < currencyArr.length; i++) {
-      if (currencyArr[i][1] == currencyCode) {
-        fullName = currencyArr[i][0];
+    for (let i = 0; i < fetchedCurrenciesArr.length; i++) {
+      if (fetchedCurrenciesArr[i][0].short_code == currencyCode) {
+        fullName = fetchedCurrenciesArr[i][0].name;
 
         return fullName;
       }
@@ -47,8 +53,10 @@ const Calculator = () => {
   useEffect(() => {
     // only changing the state when the fetchData in store has succeeded, otherwise I'll get an error for
     // trying to select an index in the storedData that doesn't exist
-    setBaseCurrency(findCurrencyName(baseCode));
-    setTargetCurrency(findCurrencyName(targetCode));
+    getCurrenciesList().then(() => {
+      setBaseCurrency(findCurrencyName(baseCode));
+      setTargetCurrency(findCurrencyName(targetCode));
+    });
     if (dataStatus == "succeded") {
       const baseValue = document.getElementById("base-value").value;
 
@@ -63,9 +71,9 @@ const Calculator = () => {
   // finding code of the currency based on its full name for keys in JSX and dispatching to store
   let codeName;
   const findCurrencyCode = (currencyName) => {
-    for (let i = 0; i < currencyArr.length; i++) {
-      if (currencyArr[i][0] == currencyName) {
-        codeName = currencyArr[i][1];
+    for (let i = 0; i < fetchedCurrenciesArr.length; i++) {
+      if (fetchedCurrenciesArr[i][0].name == currencyName) {
+        codeName = fetchedCurrenciesArr[i][0].short_code;
         return codeName;
       }
     }
