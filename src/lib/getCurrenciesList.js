@@ -11,7 +11,7 @@ const getCurrenciesList = async () => {
     const fetchedData = await response.json();
     console.log(fetchedData, "fetchedData");
     // changing the fetched data to array format
-    fetchedCurrenciesArr = Object.entries(fetchedData);
+    fetchedCurrenciesArr = Object.entries(fetchedData.response);
     // const fetchedCurrencies = fetchedCurrenciesArr;
     console.log(fetchedCurrenciesArr, "fetched Currencies ARR");
 
@@ -45,6 +45,7 @@ const getCurrenciesList = async () => {
       // console.log(fetchedCurrenciesArr[i].name);
       dropDownArr.push(fetchedCurrenciesArr[i][0].name);
     }
+    dropDownArr = [...new Set(dropDownArr)];
     console.log(currencyArr, "currency array");
     console.log(dropDownArr, "dropdown");
     // returning this for testing with Jest
@@ -59,7 +60,5 @@ const getCurrenciesList = async () => {
   //   );
   //   console.log(dropDownArr, "DROP DOWN OPTIONS!❗❗❗❗❗❗❗");
 };
-
-
 
 export { getCurrenciesList, currencyArr, dropDownArr, fetchedCurrenciesArr };

@@ -143,7 +143,9 @@ const Calculator = () => {
             onChange={(e) => handleSelect(e)}
           >
             {dropDownArr.map((curr) => {
-              return <option key={findCurrencyCode(curr)}>{curr}</option>;
+              return (
+                <option key={`${findCurrencyCode(curr)}-base`}>{curr}</option>
+              );
             })}
           </select>
         </div>
@@ -176,7 +178,9 @@ const Calculator = () => {
             onChange={(e) => handleSelect(e)}
           >
             {dropDownArr.map((curr) => {
-              return <option key={findCurrencyCode(curr)}>{curr}</option>;
+              return (
+                <option key={`${findCurrencyCode(curr)}-target`}>{curr}</option>
+              );
             })}
           </select>
         </div>
